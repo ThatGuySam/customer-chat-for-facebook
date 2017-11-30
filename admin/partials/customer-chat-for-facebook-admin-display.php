@@ -41,6 +41,15 @@
 						break;
 					// If no tab or general
 					default: ?>
+						<div id="setup" class="meta-box-sortables ui-sortable">
+							<div id="itsec_sss" class="postbox ">
+								<h3 class="hndle"><span>Setup</span></h3>
+								<div class="inside">
+									<p>Be sure that you go through the plugin setup to make sure everything is working as intended</p>
+									<a href="https://github.com/ThatGuySam/customer-chat-for-facebook#setup--installation" target="_blank"><strong>Plugin Setup Intructions</strong></a>
+								</div>
+							</div>
+						</div>
 						<form method="post" action="options.php">
 							<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 								<div id="itsec_get_started" class="postbox ">
