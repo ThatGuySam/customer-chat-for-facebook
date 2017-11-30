@@ -1,4 +1,4 @@
-1.0.0<?php
+<?php
 
 /**
  * Controls settings of plugin
