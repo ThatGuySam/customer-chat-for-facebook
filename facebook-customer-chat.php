@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Facebook Customer Chat
- * Plugin URI:        http://samcarlton.com
+ * Plugin URI:        https://samcarlton.com/facebook-customer-chat
  * Description:       Adds Facebook's Customer chat plugin to your site
  * Version:           1.0.0
  * Author:            Sam Carlton
