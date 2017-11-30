@@ -13,12 +13,12 @@
  * @package           Plugin_Name
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
- * Plugin URI:        http://example.com/facebook-customer-chat-uri/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Plugin Name:       Facebook Customer Chat
+ * Plugin URI:        http://samcarlton.com
+ * Description:       Adds Facebook's Customer chat plugin to your site
  * Version:           1.0.0
- * Author:            Your Name or Your Company
- * Author URI:        http://example.com/
+ * Author:            Sam Carlton
+ * Author URI:        http://samcarlton.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       facebook-customer-chat
