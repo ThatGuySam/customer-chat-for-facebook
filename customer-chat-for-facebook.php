@@ -16,7 +16,7 @@
  * Plugin Name:       Customer Chat for Facebook
  * Plugin URI:        https://samcarlton.com/customer-chat-for-facebook
  * Description:       Adds Facebook's Customer chat plugin to your site
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Sam Carlton
  * Author URI:        http://samcarlton.com
  * License:           GPL-2.0+
