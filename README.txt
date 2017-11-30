@@ -13,7 +13,7 @@ Adds Facebook's Customer chat plugin to your site
 
 == Description ==
 
-This is a plugin for the new Customer Chat Beta so you can try Facebook Messenger on your own Wordpress site!
+This is a plugin for the brand new Customer Chat Beta so you can try the Official Facebook Messenger on your own Wordpress site!
 
 Keep in mind Facebook is currently beta testing this.
 
