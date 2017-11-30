@@ -10,7 +10,7 @@
  *
  * @link              http://example.com
  * @since             1.0.0
- * @package           Plugin_Name
+ * @package           Facebook_Customer_Chat
  *
  * @wordpress-plugin
  * Plugin Name:       Facebook Customer Chat
@@ -43,7 +43,7 @@ define( 'PLUGIN_NAME_VERSION', '1.0.0' );
  */
 function activate_plugin_name() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-facebook-customer-chat-activator.php';
-	Plugin_Name_Activator::activate();
+	Facebook_Customer_Chat_Activator::activate();
 }
 
 /**
@@ -52,7 +52,7 @@ function activate_plugin_name() {
  */
 function deactivate_plugin_name() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-facebook-customer-chat-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+	Facebook_Customer_Chat_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_plugin_name' );
@@ -75,7 +75,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-facebook-customer-chat.php
  */
 function run_plugin_name() {
 
-	$plugin = new Plugin_Name();
+	$plugin = new Facebook_Customer_Chat();
 	$plugin->run();
 
 }

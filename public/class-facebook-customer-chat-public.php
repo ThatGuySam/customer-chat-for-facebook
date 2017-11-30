@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public
+ * @package    Facebook_Customer_Chat
+ * @subpackage Facebook_Customer_Chat/public
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public
+ * @package    Facebook_Customer_Chat
+ * @subpackage Facebook_Customer_Chat/public
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Public {
+class Facebook_Customer_Chat_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -65,10 +65,10 @@ class Plugin_Name_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Loader as all of the hooks are defined
+		 * defined in Facebook_Customer_Chat_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Plugin_Name_Loader will then create the relationship
+		 * The Facebook_Customer_Chat_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -88,10 +88,10 @@ class Plugin_Name_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Loader as all of the hooks are defined
+		 * defined in Facebook_Customer_Chat_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Plugin_Name_Loader will then create the relationship
+		 * The Facebook_Customer_Chat_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
