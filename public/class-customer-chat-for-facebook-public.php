@@ -134,8 +134,6 @@ class Customer_Chat_Public {
 					}(document, 'script', 'facebook-jssdk'));
 				</script>
 
-				<?php var_dump(get_option( $this->Customer_Chat . '_options' )); ?>
-
 				<div class="fb-customerchat"
 					page_id="<?php echo $facebook_page_id; ?>"
 					ref="website"
