@@ -8,8 +8,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/public/partials
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/public/partials
  */
 ?>
 

@@ -8,8 +8,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/admin/partials
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/admin/partials
  */
 ?>
 
@@ -21,7 +21,7 @@
 <div class="wrap">
 	<?php
 		$tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'general';
-		$this->facebook_customer_chat_render_tabs();
+		$this->Customer_Chat_render_tabs();
 	?>
 	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 	<div id="poststuff">
@@ -36,7 +36,7 @@
               You can preview it by opening the site in a incognito window.
             </span>
 						<h3>Q: Have some issues about plugin?</h3>
-						<span>A: Contact me on <a href="http://samcarlton.com/facebook-customer-chat" target="_blank"><strong>my website</strong></a>.</span>
+						<span>A: Contact me on <a href="http://samcarlton.com/customer-chat-for-facebook" target="_blank"><strong>my website</strong></a>.</span>
 					<?php
 						break;
 					// If no tab or general

@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/includes
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/includes
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/includes
  * @author     Your Name <email@example.com>
  */
-class Facebook_Customer_Chat_Loader {
+class Customer_Chat_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

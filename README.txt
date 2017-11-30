@@ -50,7 +50,7 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 **Install & Finish Up**
 
 1. Log in to your WordPress site.
-1. Upload `facebook-customer-chat.php` to the `/wp-content/plugins/` directory
+1. Upload `customer-chat-for-facebook` to the `/wp-content/plugins/` directory
 1. Install and activate the plugin.
 1. In the left sidebar go to **Settings > Facebook Customer Chat**.
 1. Enter your **Facebook Page ID** and **Facebook App ID**.

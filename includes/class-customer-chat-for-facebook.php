@@ -9,8 +9,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/includes
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/includes
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/includes
  * @author     Your Name <email@example.com>
  */
-class Facebook_Customer_Chat {
+class Customer_Chat {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Facebook_Customer_Chat {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Facebook_Customer_Chat_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Customer_Chat_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -44,9 +44,9 @@ class Facebook_Customer_Chat {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $Facebook_Customer_Chat    The string used to uniquely identify this plugin.
+	 * @var      string    $Customer_Chat    The string used to uniquely identify this plugin.
 	 */
-	protected $Facebook_Customer_Chat;
+	protected $Customer_Chat;
 
 	/**
 	 * The current version of the plugin.
@@ -72,7 +72,7 @@ class Facebook_Customer_Chat {
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->Facebook_Customer_Chat = 'facebook-customer-chat';
+		$this->Customer_Chat = 'customer-chat-for-facebook';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -86,10 +86,10 @@ class Facebook_Customer_Chat {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Facebook_Customer_Chat_Loader. Orchestrates the hooks of the plugin.
-	 * - Facebook_Customer_Chat_i18n. Defines internationalization functionality.
-	 * - Facebook_Customer_Chat_Admin. Defines all hooks for the admin area.
-	 * - Facebook_Customer_Chat_Public. Defines all hooks for the public side of the site.
+	 * - Customer_Chat_Loader. Orchestrates the hooks of the plugin.
+	 * - Customer_Chat_i18n. Defines internationalization functionality.
+	 * - Customer_Chat_Admin. Defines all hooks for the admin area.
+	 * - Customer_Chat_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -103,38 +103,38 @@ class Facebook_Customer_Chat {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-facebook-customer-chat-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-customer-chat-for-facebook-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-facebook-customer-chat-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-customer-chat-for-facebook-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-facebook-customer-chat-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-customer-chat-for-facebook-admin.php';
 
 		/**
 		 * The class responsible for defining all Settings.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-facebook-customer-chat-settings.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-customer-chat-for-facebook-settings.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-facebook-customer-chat-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-customer-chat-for-facebook-public.php';
 
-		$this->loader = new Facebook_Customer_Chat_Loader();
+		$this->loader = new Customer_Chat_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Facebook_Customer_Chat_i18n class in order to set the domain and to register the hook
+	 * Uses the Customer_Chat_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -142,7 +142,7 @@ class Facebook_Customer_Chat {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Facebook_Customer_Chat_i18n();
+		$plugin_i18n = new Customer_Chat_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -157,13 +157,13 @@ class Facebook_Customer_Chat {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Facebook_Customer_Chat_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Customer_Chat_Admin( $this->get_plugin_name(), $this->get_version() );
 
 
-		$settings_init_general = new Facebook_Customer_Chat_Settings( $this->get_plugin_name() );
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'facebook_customer_chat_admin_menu' );
+		$settings_init_general = new Customer_Chat_Settings( $this->get_plugin_name() );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'Customer_Chat_admin_menu' );
 		$this->loader->add_action( 'admin_init', $settings_init_general, 'settings_api_init' );
-		$this->loader->add_filter( 'plugin_action_links_facebook-customer-chat/facebook-customer-chat.php', $plugin_admin, 'add_settings_link' );
+		$this->loader->add_filter( 'plugin_action_links_customer-chat-for-facebook/customer-chat-for-facebook.php', $plugin_admin, 'add_settings_link' );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -179,7 +179,7 @@ class Facebook_Customer_Chat {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Facebook_Customer_Chat_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Customer_Chat_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -204,14 +204,14 @@ class Facebook_Customer_Chat {
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
-		return $this->Facebook_Customer_Chat;
+		return $this->Customer_Chat;
 	}
 
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Facebook_Customer_Chat_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Customer_Chat_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

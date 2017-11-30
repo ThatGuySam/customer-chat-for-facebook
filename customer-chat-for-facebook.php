@@ -10,18 +10,18 @@
  *
  * @link              http://example.com
  * @since             1.0.0
- * @package           Facebook_Customer_Chat
+ * @package           Customer_Chat
  *
  * @wordpress-plugin
- * Plugin Name:       Facebook Customer Chat
- * Plugin URI:        https://samcarlton.com/facebook-customer-chat
+ * Plugin Name:       Customer Chat for Facebook
+ * Plugin URI:        https://samcarlton.com/customer-chat-for-facebook
  * Description:       Adds Facebook's Customer chat plugin to your site
  * Version:           1.0.0
  * Author:            Sam Carlton
  * Author URI:        http://samcarlton.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       facebook-customer-chat
+ * Text Domain:       customer-chat-for-facebook
  * Domain Path:       /languages
  */
 
@@ -39,20 +39,20 @@ define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-facebook-customer-chat-activator.php
+ * This action is documented in includes/class-customer-chat-for-facebook-activator.php
  */
 function activate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-facebook-customer-chat-activator.php';
-	Facebook_Customer_Chat_Activator::activate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-customer-chat-for-facebook-activator.php';
+	Customer_Chat_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-facebook-customer-chat-deactivator.php
+ * This action is documented in includes/class-customer-chat-for-facebook-deactivator.php
  */
 function deactivate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-facebook-customer-chat-deactivator.php';
-	Facebook_Customer_Chat_Deactivator::deactivate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-customer-chat-for-facebook-deactivator.php';
+	Customer_Chat_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_plugin_name' );
@@ -62,7 +62,7 @@ register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-facebook-customer-chat.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-customer-chat-for-facebook.php';
 
 /**
  * Begins execution of the plugin.
@@ -75,7 +75,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-facebook-customer-chat.php
  */
 function run_plugin_name() {
 
-	$plugin = new Facebook_Customer_Chat();
+	$plugin = new Customer_Chat();
 	$plugin->run();
 
 }

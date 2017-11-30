@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/admin
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/admin
  */
 
 /**
@@ -16,20 +16,20 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/admin
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/admin
  * @author     Your Name <email@example.com>
  */
-class Facebook_Customer_Chat_Admin {
+class Customer_Chat_Admin {
 
 	/**
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $Facebook_Customer_Chat    The ID of this plugin.
+	 * @var      string    $Customer_Chat    The ID of this plugin.
 	 */
-	private $Facebook_Customer_Chat;
+	private $Customer_Chat;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Facebook_Customer_Chat_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $Facebook_Customer_Chat       The name of this plugin.
+	 * @param      string    $Customer_Chat       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $Facebook_Customer_Chat, $version ) {
+	public function __construct( $Customer_Chat, $version ) {
 
-		$this->Facebook_Customer_Chat = $Facebook_Customer_Chat;
+		$this->Customer_Chat = $Customer_Chat;
 		$this->version = $version;
 
 		$this->plugin_settings_tabs['general'] = 'General';
@@ -62,8 +62,8 @@ class Facebook_Customer_Chat_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function facebook_customer_chat_admin_menu() {
-		 add_options_page( __('Facebook Customer Chat', $this->Facebook_Customer_Chat), __('Facebook Customer Chat', $this->Facebook_Customer_Chat), 'manage_options', $this->Facebook_Customer_Chat, array($this, 'display_plugin_admin_page'));
+	public function Customer_Chat_admin_menu() {
+		 add_options_page( __('Customer Chat for Facebook', $this->Customer_Chat), __('Customer Chat for Facebook', $this->Customer_Chat), 'manage_options', $this->Customer_Chat, array($this, 'display_plugin_admin_page'));
 	}
 
 	/**
@@ -91,13 +91,13 @@ class Facebook_Customer_Chat_Admin {
 	 * @since 		1.0.0
 	 * @return 		mixed 			The settings field
 	 */
-	function facebook_customer_chat_render_tabs() {
+	function Customer_Chat_render_tabs() {
 		$current_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'general';
 		screen_icon();
 		echo '<h2 class="nav-tab-wrapper">';
 		foreach ( $this->plugin_settings_tabs as $tab_key => $tab_caption ) {
 			$active = $current_tab == $tab_key ? 'nav-tab-active' : '';
-			echo '<a class="nav-tab ' . $active . '" href="?page=' . $this->Facebook_Customer_Chat . '&tab=' . $tab_key . '">' . $tab_caption . '</a>';
+			echo '<a class="nav-tab ' . $active . '" href="?page=' . $this->Customer_Chat . '&tab=' . $tab_key . '">' . $tab_caption . '</a>';
 		}
 		echo '</h2>';
 	}
@@ -110,7 +110,7 @@ class Facebook_Customer_Chat_Admin {
 	 */
 	function add_settings_link( $links ) {
 		$mylinks = array(
-			'<a href="' . admin_url( 'options-general.php?page=facebook-customer-chat' ) . '">Settings</a>',
+			'<a href="' . admin_url( 'options-general.php?page=customer-chat-for-facebook' ) . '">Settings</a>',
 		);
 		return array_merge( $links, $mylinks );
 	}
@@ -121,17 +121,17 @@ class Facebook_Customer_Chat_Admin {
 	 * @since    1.0.0
 	 */
 	public function display_plugin_admin_page(){
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/facebook-customer-chat-admin-display.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/customer-chat-for-facebook-admin-display.php';
 	}
 
 	/**
 	 * Returns plugin for settings page
 	 *
 	 * @since    	1.0.0
-	 * @return 		string    $Facebook_Customer_Chat       The name of this plugin
+	 * @return 		string    $Customer_Chat       The name of this plugin
 	 */
 	public function get_plugin() {
-		return $this->Facebook_Customer_Chat;
+		return $this->Customer_Chat;
 	}
 
 	/**
@@ -145,15 +145,15 @@ class Facebook_Customer_Chat_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Facebook_Customer_Chat_Loader as all of the hooks are defined
+		 * defined in Customer_Chat_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Facebook_Customer_Chat_Loader will then create the relationship
+		 * The Customer_Chat_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->Facebook_Customer_Chat, plugin_dir_url( __FILE__ ) . 'css/facebook-customer-chat-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->Customer_Chat, plugin_dir_url( __FILE__ ) . 'css/customer-chat-for-facebook-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -168,15 +168,15 @@ class Facebook_Customer_Chat_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Facebook_Customer_Chat_Loader as all of the hooks are defined
+		 * defined in Customer_Chat_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Facebook_Customer_Chat_Loader will then create the relationship
+		 * The Customer_Chat_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->Facebook_Customer_Chat, plugin_dir_url( __FILE__ ) . 'js/facebook-customer-chat-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->Customer_Chat, plugin_dir_url( __FILE__ ) . 'js/customer-chat-for-facebook-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 

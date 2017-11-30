@@ -9,8 +9,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/includes
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/includes
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/includes
  * @author     Your Name <email@example.com>
  */
-class Facebook_Customer_Chat_i18n {
+class Customer_Chat_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Facebook_Customer_Chat_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'facebook-customer-chat',
+			'customer-chat-for-facebook',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

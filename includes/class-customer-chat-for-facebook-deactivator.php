@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/includes
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/includes
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/includes
  * @author     Your Name <email@example.com>
  */
-class Facebook_Customer_Chat_Deactivator {
+class Customer_Chat_Deactivator {
 
 	/**
 	 * Short Description. (use period)

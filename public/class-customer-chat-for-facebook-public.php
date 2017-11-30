@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/public
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/public
  */
 
 /**
@@ -16,20 +16,20 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Facebook_Customer_Chat
- * @subpackage Facebook_Customer_Chat/public
+ * @package    Customer_Chat
+ * @subpackage Customer_Chat/public
  * @author     Your Name <email@example.com>
  */
-class Facebook_Customer_Chat_Public {
+class Customer_Chat_Public {
 
 	/**
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $Facebook_Customer_Chat    The ID of this plugin.
+	 * @var      string    $Customer_Chat    The ID of this plugin.
 	 */
-	private $Facebook_Customer_Chat;
+	private $Customer_Chat;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Facebook_Customer_Chat_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $Facebook_Customer_Chat       The name of the plugin.
+	 * @param      string    $Customer_Chat       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $Facebook_Customer_Chat, $version ) {
+	public function __construct( $Customer_Chat, $version ) {
 
-		$this->Facebook_Customer_Chat = $Facebook_Customer_Chat;
+		$this->Customer_Chat = $Customer_Chat;
 		$this->version = $version;
 
 	}
@@ -65,15 +65,15 @@ class Facebook_Customer_Chat_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Facebook_Customer_Chat_Loader as all of the hooks are defined
+		 * defined in Customer_Chat_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Facebook_Customer_Chat_Loader will then create the relationship
+		 * The Customer_Chat_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->Facebook_Customer_Chat, plugin_dir_url( __FILE__ ) . 'css/facebook-customer-chat-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->Customer_Chat, plugin_dir_url( __FILE__ ) . 'css/customer-chat-for-facebook-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -88,15 +88,15 @@ class Facebook_Customer_Chat_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Facebook_Customer_Chat_Loader as all of the hooks are defined
+		 * defined in Customer_Chat_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Facebook_Customer_Chat_Loader will then create the relationship
+		 * The Customer_Chat_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->Facebook_Customer_Chat, plugin_dir_url( __FILE__ ) . 'js/facebook-customer-chat-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->Customer_Chat, plugin_dir_url( __FILE__ ) . 'js/customer-chat-for-facebook-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 
@@ -108,7 +108,7 @@ class Facebook_Customer_Chat_Public {
 	 */
 	public function before_body_scripts() {
 
-		$options = get_option( $this->Facebook_Customer_Chat . '_options' );
+		$options = get_option( $this->Customer_Chat . '_options' );
 
 		$facebook_page_id = $options['facebook-page-id'];
 		$facebook_app_id = $options['facebook-app-id'];
@@ -134,7 +134,7 @@ class Facebook_Customer_Chat_Public {
 					}(document, 'script', 'facebook-jssdk'));
 				</script>
 
-				<?php var_dump(get_option( $this->Facebook_Customer_Chat . '_options' )); ?>
+				<?php var_dump(get_option( $this->Customer_Chat . '_options' )); ?>
 
 				<div class="fb-customerchat"
 					page_id="<?php echo $facebook_page_id; ?>"
