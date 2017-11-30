@@ -27,9 +27,9 @@ class Facebook_Customer_Chat_Public {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @var      string    $Facebook_Customer_Chat    The ID of this plugin.
 	 */
-	private $plugin_name;
+	private $Facebook_Customer_Chat;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Facebook_Customer_Chat_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
+	 * @param      string    $Facebook_Customer_Chat       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $Facebook_Customer_Chat, $version ) {
 
-		$this->plugin_name = $plugin_name;
+		$this->Facebook_Customer_Chat = $Facebook_Customer_Chat;
 		$this->version = $version;
 
 	}
@@ -73,7 +73,7 @@ class Facebook_Customer_Chat_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/facebook-customer-chat-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->Facebook_Customer_Chat, plugin_dir_url( __FILE__ ) . 'css/facebook-customer-chat-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class Facebook_Customer_Chat_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/facebook-customer-chat-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->Facebook_Customer_Chat, plugin_dir_url( __FILE__ ) . 'js/facebook-customer-chat-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 
@@ -108,11 +108,17 @@ class Facebook_Customer_Chat_Public {
 	 */
 	public function before_body_scripts() {
 
+		$options = get_option( $this->Facebook_Customer_Chat . '_options' );
+
+		$facebook_page_id = $options['facebook-page-id'];
+		$facebook_app_id = $options['facebook-app-id'];
+		$minimized = ($options['minimized']) ? 'true' : 'false';
+
 		 ?>
 			 <script>
 				 window.fbAsyncInit = function() {
 					 FB.init({
-						 appId            : '735243603333999',
+						 appId            : '<?php echo $facebook_app_id; ?>',
 						 autoLogAppEvents : true,
 						 xfbml            : true,
 						 version          : 'v2.11'
@@ -128,10 +134,12 @@ class Facebook_Customer_Chat_Public {
 					}(document, 'script', 'facebook-jssdk'));
 				</script>
 
+				<?php var_dump(get_option( $this->Facebook_Customer_Chat . '_options' )); ?>
+
 				<div class="fb-customerchat"
-					page_id="139756292753616"
+					page_id="<?php echo $facebook_page_id; ?>"
 					ref="website"
-					minimized="false">
+					minimized="<?php echo $minimized; ?>">
 				</div>
  			<?php
 

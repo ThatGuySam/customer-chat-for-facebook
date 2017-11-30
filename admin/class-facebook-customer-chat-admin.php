@@ -27,9 +27,9 @@ class Facebook_Customer_Chat_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @var      string    $Facebook_Customer_Chat    The ID of this plugin.
 	 */
-	private $plugin_name;
+	private $Facebook_Customer_Chat;
 
 	/**
 	 * The version of this plugin.
@@ -44,14 +44,94 @@ class Facebook_Customer_Chat_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
+	 * @param      string    $Facebook_Customer_Chat       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $Facebook_Customer_Chat, $version ) {
 
-		$this->plugin_name = $plugin_name;
+		$this->Facebook_Customer_Chat = $Facebook_Customer_Chat;
 		$this->version = $version;
 
+		$this->plugin_settings_tabs['general'] = 'General';
+		$this->plugin_settings_tabs['faq'] = 'FAQs';
+
+	}
+
+	/**
+	 * Register the Settings page.
+	 *
+	 * @since    1.0.0
+	 */
+	public function facebook_customer_chat_admin_menu() {
+		 add_options_page( __('Facebook Customer Chat', $this->Facebook_Customer_Chat), __('Facebook Customer Chat', $this->Facebook_Customer_Chat), 'manage_options', $this->Facebook_Customer_Chat, array($this, 'display_plugin_admin_page'));
+	}
+
+	/**
+	 * Settings - Validates saved options
+	 *
+	 * @since 		1.0.0
+	 * @param 		array 		$input 			array of submitted plugin options
+	 * @return 		array 						array of validated plugin options
+	 */
+	public function settings_sanitize( $input ) {
+		// Initialize the new array that will hold the sanitize values
+		$new_input = array();
+		if(isset($input)) {
+			// Loop through the input and sanitize each of the values
+			foreach ( $input as $key => $val ) {
+				$new_input[ $key ] = sanitize_text_field( $val );
+			}
+		}
+		return $new_input;
+	} // sanitize()
+
+	/**
+	 * Renders Settings Tabs
+	 *
+	 * @since 		1.0.0
+	 * @return 		mixed 			The settings field
+	 */
+	function facebook_customer_chat_render_tabs() {
+		$current_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'general';
+		screen_icon();
+		echo '<h2 class="nav-tab-wrapper">';
+		foreach ( $this->plugin_settings_tabs as $tab_key => $tab_caption ) {
+			$active = $current_tab == $tab_key ? 'nav-tab-active' : '';
+			echo '<a class="nav-tab ' . $active . '" href="?page=' . $this->Facebook_Customer_Chat . '&tab=' . $tab_key . '">' . $tab_caption . '</a>';
+		}
+		echo '</h2>';
+	}
+
+	/**
+	 * Plugin Settings Link on plugin page
+	 *
+	 * @since 		1.0.0
+	 * @return 		mixed 			The settings field
+	 */
+	function add_settings_link( $links ) {
+		$mylinks = array(
+			'<a href="' . admin_url( 'options-general.php?page=facebook-customer-chat' ) . '">Settings</a>',
+		);
+		return array_merge( $links, $mylinks );
+	}
+
+	/**
+	 * Callback function for the admin settings page.
+	 *
+	 * @since    1.0.0
+	 */
+	public function display_plugin_admin_page(){
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/facebook-customer-chat-admin-display.php';
+	}
+
+	/**
+	 * Returns plugin for settings page
+	 *
+	 * @since    	1.0.0
+	 * @return 		string    $Facebook_Customer_Chat       The name of this plugin
+	 */
+	public function get_plugin() {
+		return $this->Facebook_Customer_Chat;
 	}
 
 	/**
@@ -73,7 +153,7 @@ class Facebook_Customer_Chat_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/facebook-customer-chat-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->Facebook_Customer_Chat, plugin_dir_url( __FILE__ ) . 'css/facebook-customer-chat-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +176,7 @@ class Facebook_Customer_Chat_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/facebook-customer-chat-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->Facebook_Customer_Chat, plugin_dir_url( __FILE__ ) . 'js/facebook-customer-chat-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 

@@ -44,9 +44,9 @@ class Facebook_Customer_Chat {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+	 * @var      string    $Facebook_Customer_Chat    The string used to uniquely identify this plugin.
 	 */
-	protected $plugin_name;
+	protected $Facebook_Customer_Chat;
 
 	/**
 	 * The current version of the plugin.
@@ -72,7 +72,7 @@ class Facebook_Customer_Chat {
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'facebook-customer-chat';
+		$this->Facebook_Customer_Chat = 'facebook-customer-chat';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -117,6 +117,11 @@ class Facebook_Customer_Chat {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-facebook-customer-chat-admin.php';
 
 		/**
+		 * The class responsible for defining all Settings.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-facebook-customer-chat-settings.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
@@ -153,6 +158,12 @@ class Facebook_Customer_Chat {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Facebook_Customer_Chat_Admin( $this->get_plugin_name(), $this->get_version() );
+
+
+		$settings_init_general = new Facebook_Customer_Chat_Settings( $this->get_plugin_name() );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'facebook_customer_chat_admin_menu' );
+		$this->loader->add_action( 'admin_init', $settings_init_general, 'settings_api_init' );
+		$this->loader->add_filter( 'plugin_action_links_facebook-customer-chat/facebook-customer-chat.php', $plugin_admin, 'add_settings_link' );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -193,7 +204,7 @@ class Facebook_Customer_Chat {
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
-		return $this->plugin_name;
+		return $this->Facebook_Customer_Chat;
 	}
 
 	/**
