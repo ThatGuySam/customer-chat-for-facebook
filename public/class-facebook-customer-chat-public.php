@@ -100,4 +100,41 @@ class Facebook_Customer_Chat_Public {
 
 	}
 
+
+	/**
+	 * Add Facebook SDK code before body
+	 *
+	 * @since    1.0.0
+	 */
+	public function before_body_scripts() {
+
+		 ?>
+			 <script>
+				 window.fbAsyncInit = function() {
+					 FB.init({
+						 appId            : '735243603333999',
+						 autoLogAppEvents : true,
+						 xfbml            : true,
+						 version          : 'v2.11'
+					 });
+				 };
+
+				 (function(d, s, id){
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (d.getElementById(id)) {return;}
+						js = d.createElement(s); js.id = id;
+						js.src = "https://connect.facebook.net/en_US/sdk.js";
+						fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));
+				</script>
+
+				<div class="fb-customerchat"
+					page_id="139756292753616"
+					ref="website"
+					minimized="false">
+				</div>
+ 			<?php
+
+	}
+
 }
