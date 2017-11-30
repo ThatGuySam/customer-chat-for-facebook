@@ -11,90 +11,65 @@ Adds Facebook's Customer chat plugin to your site
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+This is a plugin for the new Customer Chat Beta so you can try Facebook Messenger on your own Wordpress site!
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+Keep in mind Facebook is currently beta testing this.
 
-A few notes about the sections above:
+You can find out more about the beta in Facebook’s post: https://blog.messengerdevelopers.com/messenger-customer-chat-open-beta-16b11879637
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
-
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
-
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
 
-e.g.
+**Whitelisting Your domain**
 
+1. Copy the url of your site
+1. Go to you Facebook Page and click **Settings** on the top right.
+1. In the left sidebar there should be a setting called **Messenger Platform**.
+1. Click into Messenger Platform and add your website url under **Whitelisted Domains**.
+1. **Save it**.
+
+**Get your Facebook Page ID**
+
+1. Get the url of your Facebook Page.
+1. Go to https://findmyfbid.com and enter your Facebook Page url.
+2. **Make a note of the Page ID**.
+
+**Get a Facebook App ID**
+
+1. Go to https://developers.facebook.com/apps/
+1. Click **Add a New App**
+1. Give the app clever name and enter your email.
+1. Type in the captcha if it asks you for one.
+1. You should be brought to your App Dashboard.
+1. In the left sidebar click **App Review**.
+1. Click the big toggle to **Make your App Public**.
+1. Pick a Category for your app, Apps for Messenger is fine.
+1. Look at the top left of the page and make a note of the **APP ID**.
+
+**Install & Finish Up**
+
+1. Log in to your WordPress site.
 1. Upload `facebook-customer-chat.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Install and activate the plugin.
+1. In the left sidebar go to **Settings > Facebook Customer Chat**.
+1. Enter your **Facebook Page ID** and **Facebook App ID**.
+1. Select whether you want the messenger to be minimized by default.
+1. Click **Save Settings**.
+1. Visit your website and check it out.
+1. Let the leads pour in.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. /assets/screenshot-1.png
+2. /assets/screenshot-2.png
 
 == Changelog ==
 
 = 1.0.0 =
 * Initial Release
-* Another change.
 
 == Upgrade Notice ==
 
 = 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+We've released!
