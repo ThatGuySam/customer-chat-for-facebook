@@ -91,6 +91,14 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 			$this->Customer_Chat,
 			$this->Customer_Chat . '-display-options' // section to add to
 		);
+
+		add_settings_field(
+			'language',
+			apply_filters( $this->Customer_Chat . '-language-label', __( 'Language', $this->Customer_Chat ) ),
+			array( $this, 'language_options_field' ),
+			$this->Customer_Chat,
+			$this->Customer_Chat . '-display-options' // section to add to
+		);
 	}
 
 	/**
@@ -172,5 +180,25 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
       *Keep in mind that after the user minimizes it, it will stay minimized regardless of this setting.
     </p> <?php
 	} // minimized_options_field()
+
+
+	/**
+	 * Site language
+	 *
+	 * @since 		1.0.0
+	 * @return 		mixed 			The settings field
+	 */
+	public function language_options_field() {
+
+		$option 	= get_locale();
+		$site_url = get_site_url();
+
+		?><input type="text" id="<?php echo $this->Customer_Chat; ?>_options[wp_language]" name="<?php echo $this->Customer_Chat; ?>_options[wp_language]" value="<?php echo $option; ?>" readonly />
+		<p class="description">
+			This uses whatever language Wordpress is set to.
+			<br />
+      <a href="<?php echo $site_url; ?>/wp-admin/options-general.php#default_role">Set Site Language</a>
+    </p> <?php
+	} // language_options_field()
 
 }
