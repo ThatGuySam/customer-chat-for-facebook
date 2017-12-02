@@ -151,7 +151,7 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
   } // facebook_page_id()
 
 	/**
-	 * Enable Filter Field
+	 * Is Minimized
 	 *
 	 * @since 		1.0.0
 	 * @return 		mixed 			The settings field
