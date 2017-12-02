@@ -60,6 +60,11 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 = 1.0.0 =
 * Initial Release
 
+= 1.0.2 =
+* Simplified Instructions
+* Added Tutorial video for settings up
+* Enabled localizations on messenger
+
 == Upgrade Notice ==
 
 = 1.0.0 =
