@@ -46,7 +46,7 @@
 								<h3 class="hndle"><span>Setup</span></h3>
 								<div class="inside">
 									<p>Be sure that you go through the plugin setup to make sure everything is working as intended</p>
-									<a href="https://github.com/ThatGuySam/customer-chat-for-facebook#setup--installation" target="_blank"><strong>Plugin Setup Intructions</strong></a>
+									<a href="https://www.youtube.com/watch?v=iwofbP1EnrE" target="_blank"><strong>2 minute Setup Video</strong></a>
 								</div>
 							</div>
 						</div>
