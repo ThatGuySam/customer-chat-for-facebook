@@ -114,6 +114,8 @@ class Customer_Chat_Public {
 		$facebook_app_id = $options['facebook-app-id'];
 		$minimized = ($options['minimized']) ? 'true' : 'false';
 
+		$locale = get_locale() ?: 'en_US';
+
 		 ?>
 			 <script>
 				 window.fbAsyncInit = function() {
@@ -129,7 +131,7 @@ class Customer_Chat_Public {
 						var js, fjs = d.getElementsByTagName(s)[0];
 						if (d.getElementById(id)) {return;}
 						js = d.createElement(s); js.id = id;
-						js.src = "https://connect.facebook.net/en_US/sdk.js";
+						js.src = "https://connect.facebook.net/<?php echo $locale; ?>/sdk.js";
 						fjs.parentNode.insertBefore(js, fjs);
 					}(document, 'script', 'facebook-jssdk'));
 				</script>
