@@ -164,6 +164,7 @@ class Customer_Chat {
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'Customer_Chat_admin_menu' );
 		$this->loader->add_action( 'admin_init', $settings_init_general, 'settings_api_init' );
 		$this->loader->add_filter( 'plugin_action_links_customer-chat-for-facebook/customer-chat-for-facebook.php', $plugin_admin, 'add_settings_link' );
+		$this->loader->add_action( 'admin_notices', $plugin_admin, 'setup_notice' );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
