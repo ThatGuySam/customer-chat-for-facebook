@@ -30,37 +30,39 @@
 				<?php
 				switch ($tab) {
 					case 'faq': ?>
-						<h3>Q: Why isn't minimize working?</h3>
+						<h3><?php echo __( "Q: Why isn't minimize working?", $this->Customer_Chat ); ?></h3>
 						<span>
-              A: If the user at anytime closes the welcome message the plugin remembers that and keeps it closed for the user from then on.
-              You can preview it by opening the site in a incognito window.
+							<?php echo __( "A: If the user at anytime closes the welcome message the plugin remembers that and keeps it closed for the user from then on.
+              You can preview it by opening the site in a incognito window.", $this->Customer_Chat ); ?>
             </span>
-						<h3>Q: Have some issues about plugin?</h3>
-						<span>A: Contact me on <a href="http://samcarlton.com/customer-chat-for-facebook" target="_blank"><strong>my website</strong></a>.</span>
+						<h3><?php echo __( "Q: Have more issues?", $this->Customer_Chat ); ?></h3>
+						<span>
+							<?php echo __( 'A: Contact me on <a href="http://samcarlton.com/customer-chat-for-facebook" target="_blank"><strong>my website</strong></a>.', $this->Customer_Chat ); ?>
+						</span>
 					<?php
 						break;
 					// If no tab or general
 					default: ?>
 						<div id="setup" class="meta-box-sortables ui-sortable">
 							<div id="itsec_sss" class="postbox ">
-								<h3 class="hndle"><span>Setup</span></h3>
+								<h3 class="hndle"><span><?php echo __( 'Setup', $this->Customer_Chat ); ?></span></h3>
 								<div class="inside">
-									<p>Be sure that you go through the plugin setup to make sure everything is working as intended</p>
-									<a href="https://github.com/ThatGuySam/customer-chat-for-facebook#setup--installation" target="_blank"><strong>Plugin Setup Intructions</strong></a>
+									<p><?php echo __( 'Be sure that you go through the plugin setup to make sure everything is working as intended.', $this->Customer_Chat ); ?></p>
+									<a href="https://www.youtube.com/watch?v=iwofbP1EnrE" target="_blank"><strong><?php echo __( '2 minute Setup Video', $this->Customer_Chat ); ?></strong></a>
 								</div>
 							</div>
 						</div>
 						<form method="post" action="options.php">
 							<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 								<div id="itsec_get_started" class="postbox ">
-									<h3 class="hndle"><span>Settings</span></h3>
+									<h3 class="hndle"><span><?php echo __( 'Settings', $this->Customer_Chat ); ?></span></h3>
 									<div class="inside">
 										<?php
 											settings_fields( $this->get_plugin() . '_options' );
 
 											do_settings_sections( $this->get_plugin() );
 
-											submit_button( 'Save Settings' );
+											submit_button( __( 'Save Settings', $this->Customer_Chat ) );
 										?>
 										<div class="clear"></div>
 									</div>

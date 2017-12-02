@@ -18,58 +18,59 @@ msgstr ""
 
 #: admin/class-customer-chat-for-facebook-admin.php:66
 msgid "Customer Chat for Facebook"
-msgstr ""
+msgstr "Czat klienta na Facebooku"
 
 #: admin/partials/customer-chat-for-facebook-admin-display.php:33
 msgid "Q: Why isn't minimize working?"
-msgstr ""
+msgstr "P: Dlaczego minimalizowanie działa?"
 
 #: admin/partials/customer-chat-for-facebook-admin-display.php:35
 msgid ""
 "A: If the user at anytime closes the welcome message the plugin remembers that and keeps it closed for the user from then on.\n"
 "              You can preview it by opening the site in a incognito window."
-msgstr ""
+msgstr "Odp .: Jeśli użytkownik w dowolnym momencie zamknie wiadomość powitalną, wtyczka to zapamięta i pozostanie dla niego zamknięta. \ N Możesz ją wyświetlić, otwierając witrynę w oknie incognito."
 
 #: admin/partials/customer-chat-for-facebook-admin-display.php:38
 msgid "Q: Have more issues?"
-msgstr ""
+msgstr "P: Masz więcej problemów?"
 
 #: admin/partials/customer-chat-for-facebook-admin-display.php:40
 msgid "A: Contact me on <a href=\"http://samcarlton.com/customer-chat-for-facebook\" target=\"_blank\"><strong>my website</strong></a>."
-msgstr ""
+msgstr "O: Skontaktuj się ze mną na <a href=\"http://samcarlton.com/customer-chat-for-facebook\" target=\"_blank\"> <strong> mojej stronie </ strong> </a>."
 
 #: admin/partials/customer-chat-for-facebook-admin-display.php:48
 msgid "Setup"
-msgstr ""
+msgstr "Ustawiać"
 
 #: admin/partials/customer-chat-for-facebook-admin-display.php:50
 msgid "Be sure that you go through the plugin setup to make sure everything is working as intended."
-msgstr ""
+msgstr "Upewnij się, że konfigurujesz wtyczkę, aby upewnić się, że wszystko działa zgodnie z przeznaczeniem."
 
 #: admin/partials/customer-chat-for-facebook-admin-display.php:51
 msgid "2 minute Setup Video"
-msgstr ""
+msgstr "2-minutowa konfiguracja wideo"
 
 #: admin/partials/customer-chat-for-facebook-admin-display.php:58
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 #: admin/partials/customer-chat-for-facebook-admin-display.php:65
 msgid "Save Settings"
-msgstr ""
+msgstr "Zapisz ustawienia"
 
 #: admin/settings/class-customer-chat-for-facebook-settings.php:29
 msgid "General"
-msgstr ""
+msgstr "Generał"
 
 #: admin/settings/class-customer-chat-for-facebook-settings.php:73
 msgid "Facebook Page ID"
-msgstr ""
+msgstr "Identyfikator strony na Facebooku"
 
 #: admin/settings/class-customer-chat-for-facebook-settings.php:81
 msgid "Facebook App ID"
-msgstr ""
+msgstr "Identyfikator aplikacji Facebook"
 
 #: admin/settings/class-customer-chat-for-facebook-settings.php:89
 msgid "Is Minimized"
-msgstr ""
+msgstr "Jest zminimalizowany"
+

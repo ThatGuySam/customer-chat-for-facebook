@@ -55,6 +55,7 @@ class Customer_Chat_Admin {
 		$this->plugin_settings_tabs['general'] = 'General';
 		$this->plugin_settings_tabs['faq'] = 'FAQs';
 
+
 	}
 
 	/**
@@ -122,6 +123,27 @@ class Customer_Chat_Admin {
 	 */
 	public function display_plugin_admin_page(){
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/customer-chat-for-facebook-admin-display.php';
+	}
+
+	/**
+	 * Setup Notice
+	 *
+	 * @since    1.0.0
+	 */
+	public function setup_notice() {
+
+			$options 	= get_option( $this->Customer_Chat . '_options' );
+
+      // If the Facebook Page ID is not set and we are not on the settings page
+			if ( empty( $options['facebook-page-id'] ) && $_GET['page'] !== $this->Customer_Chat ) {
+				$site_url = get_site_url();
+				echo $this->Customer_Chat;
+		    ?>
+				    <div class="notice notice-error">
+				        <p>Facebook Customer Chat needs to be setup. <a href="<?php echo $site_url; ?>/wp-admin/options-general.php?page=customer-chat-for-facebook">Setup</a></p>
+				    </div>
+		    <?php
+			}
 	}
 
 	/**

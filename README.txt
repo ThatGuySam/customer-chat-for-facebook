@@ -5,7 +5,7 @@ Tags: facebook, messenger, chat
 Requires at least: 3.0.1
 Tested up to: 4.9.1
 Requires PHP: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Adds Facebook's Customer chat plugin to your site
 
 == Description ==
 
-This is a plugin for the new Customer Chat Beta so you can try Facebook Messenger on your own Wordpress site!
+This is a plugin for the brand new Customer Chat Beta so you can try the Official Facebook Messenger on your own Wordpress site!
 
 Keep in mind Facebook is currently beta testing this.
 
@@ -22,6 +22,7 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 
 == Installation ==
 
+(2 Minute Video Tutorial)[https://www.youtube.com/watch?v=iwofbP1EnrE]
 
 **Whitelisting Your domain**
 
@@ -37,25 +38,13 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 1. Go to https://findmyfbid.com and enter your Facebook Page url.
 2. **Make a note of the Page ID**.
 
-**Get a Facebook App ID**
-
-1. Go to https://developers.facebook.com/apps/
-1. Click **Add a New App**
-1. Give the app clever name and enter your email.
-1. Type in the captcha if it asks you for one.
-1. You should be brought to your App Dashboard.
-1. In the left sidebar click **App Review**.
-1. Click the big toggle to **Make your App Public**.
-1. Pick a Category for your app, Apps for Messenger is fine.
-1. Look at the top left of the page and make a note of the **APP ID**.
-
 **Install & Finish Up**
 
 1. Log in to your WordPress site.
 1. Upload `customer-chat-for-facebook` to the `/wp-content/plugins/` directory
 1. Install and activate the plugin.
 1. In the left sidebar go to **Settings > Facebook Customer Chat**.
-1. Enter your **Facebook Page ID** and **Facebook App ID**.
+1. Enter your **Facebook Page ID**.
 1. Select whether you want the messenger to be minimized by default.
 1. Click **Save Settings**.
 1. Visit your website and check it out.
@@ -68,10 +57,16 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 
 == Changelog ==
 
+= 1.0.2 =
+* Simplified setup instructions
+* Added Tutorial video for settings up
+* Enabled localizations on messenger
+* Added admin notice for settings up
+
 = 1.0.0 =
 * Initial Release
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.0.0 =
 We've released!
