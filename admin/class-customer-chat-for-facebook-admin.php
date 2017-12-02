@@ -94,7 +94,6 @@ class Customer_Chat_Admin {
 	 */
 	function Customer_Chat_render_tabs() {
 		$current_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'general';
-		screen_icon();
 		echo '<h2 class="nav-tab-wrapper">';
 		foreach ( $this->plugin_settings_tabs as $tab_key => $tab_caption ) {
 			$active = $current_tab == $tab_key ? 'nav-tab-active' : '';
