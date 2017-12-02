@@ -57,13 +57,14 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial Release
-
 = 1.0.2 =
-* Simplified Instructions
+* Simplified setup instructions
 * Added Tutorial video for settings up
 * Enabled localizations on messenger
+* Added admin notice for settings up
+
+= 1.0.0 =
+* Initial Release
 
 == Upgrade Notice ==
 
