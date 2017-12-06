@@ -5,7 +5,7 @@ Tags: facebook, messenger, chat
 Requires at least: 3.0.1
 Tested up to: 4.9.1
 Requires PHP: 5.6
-Stable tag: 1.0.3.1
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,8 +57,9 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 
 == Changelog ==
 
-= 1.0.3.1 =
-Fix Minimized option not working
+= 1.0.4 =
+* Add new engine for Options page
+
 
 = 1.0.3 =
 * Added a new setting to show language and where to update it
