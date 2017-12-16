@@ -163,20 +163,20 @@ class Customer_Chat {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Customer_Chat_Admin( $this->get_plugin_name(), $this->get_version() );
+		// $plugin_admin = new Customer_Chat_Admin( $this->get_plugin_name(), $this->get_version() );
 
 
-		$settings_init_general = new Customer_Chat_Settings( $this->get_plugin_name() );
+		// $settings_init_general = new Customer_Chat_Settings( $this->get_plugin_name() );
 		$cmb2_settings_init_general = new Customer_Chat_CMB2_Settings( $this->get_plugin_name() );
 
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'Customer_Chat_admin_menu' );
-		$this->loader->add_action( 'admin_init', $settings_init_general, 'settings_api_init' );
+		// $this->loader->add_action( 'admin_menu', $plugin_admin, 'Customer_Chat_admin_menu' );
+		// $this->loader->add_action( 'admin_init', $settings_init_general, 'settings_api_init' );
 		$this->loader->add_action( 'cmb2_admin_init', $cmb2_settings_init_general, 'settings_api_init' );
-		$this->loader->add_filter( 'plugin_action_links_customer-chat-for-facebook/customer-chat-for-facebook.php', $plugin_admin, 'add_settings_link' );
-		$this->loader->add_action( 'admin_notices', $plugin_admin, 'setup_notice' );
+		// $this->loader->add_filter( 'plugin_action_links_customer-chat-for-facebook/customer-chat-for-facebook.php', $plugin_admin, 'add_settings_link' );
+		// $this->loader->add_action( 'admin_notices', $plugin_admin, 'setup_notice' );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		// $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		// $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 	}
 

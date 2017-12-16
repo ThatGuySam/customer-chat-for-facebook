@@ -129,7 +129,8 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
       $option = $options['facebook-page-id'];
     }
 
-    ?><input type="text" id="<?php echo $this->Customer_Chat; ?>_options[facebook-page-id]" name="<?php echo $this->Customer_Chat; ?>_options[facebook-page-id]" value="<?php echo $option; ?>" />
+    ?>
+		<input type="text" id="<?php echo $this->Customer_Chat; ?>_options[facebook-page-id]" name="<?php echo $this->Customer_Chat; ?>_options[facebook-page-id]" value="<?php echo $option; ?>" />
     <p class="description">
       Facebook ID of page to message
       <a href="https://findmyfbid.com/" target="_blank">Get it</a>

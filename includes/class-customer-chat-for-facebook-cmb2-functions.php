@@ -756,9 +756,10 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 	 * @var      string    $version    The version of this plugin.
 	 */
 	public function __construct( $Customer_Chat ) {
-		$this->id    = 'cmb2_options';
-		$this->label = __( 'Customer Chat for Facebook', 'woocommerce' );
 		$this->Customer_Chat = $Customer_Chat;
+		$this->id							= $this->Customer_Chat . '_options';
+		$this->option_key			= $this->Customer_Chat . '_options';
+		$this->label = __( 'Customer Chat for Facebook', 'woocommerce' );
 	}
 
 	/**
@@ -770,6 +771,30 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 	public function settings_api_init() {
 		$this->settings_post_api_init();
 	}
+	
+	/**
+	 * Creates our settings sections with fields etc.
+	 *
+	 * @since    1.0.4
+	 * @access   public
+	 */
+	public function get_old_option($option_name) {
+		$options 	= get_option( $this->Customer_Chat . '_options' );
+		$option = $options[$option_name];
+	}
+	
+	/**
+	 * A helper function to get an option from a CMB2 options array
+	 *
+	 * @since  1.0.4
+	 * @param  string $option_key Option key
+	 * @param  string $field_id   Option array field key
+	 * @param  mixed  $default    Optional default fallback value
+	 * @return array               Options array or specific field
+	 */
+	public function  cmb2_get_option( $option_key, $field_id = '', $default = false ) {
+		return CMB2_Options::get( $option_key )->get( $field_id, $default );
+	}
 
 	/**
 	 * Creates post settings sections with fields etc.
@@ -778,11 +803,12 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 	 * @access   public
 	 */
 	public function settings_post_api_init() {
+			
 			/**
 			 * Registers options page menu item and form.
 			 */
 			$cmb_options = new_cmb2_box( array(
-				'id'           => 'ccfb_theme_options_page',
+				'id'           => $this->option_key,
 				'title'        => esc_html__( 'Customer Chat for Facebook', 'cmb2' ),
 				'object_types' => array( 'options-page' ),
 
@@ -791,7 +817,7 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 				 * Several of these parameters are passed along to add_menu_page()/add_submenu_page().
 				 */
 
-				'option_key'      => 'ccfb_theme_options', // The option key and admin menu page slug.
+				'option_key'      => $this->option_key, // The option key and admin menu page slug.
 				'icon_url'        => 'dashicons-palmtree', // Menu icon. Only applicable if 'parent_slug' is left empty.
 				// 'menu_title'      => esc_html__( 'Options', 'cmb2' ), // Falls back to 'title' (above).
 				'parent_slug'     => 'options-general.php', // Make options page a submenu item of the themes menu.
@@ -803,19 +829,115 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 				// 'disable_settings_errors' => true, // On settings pages (not options-general.php sub-pages), allows disabling.
 				// 'message_cb'      => 'ccfb_options_page_message_callback',
 			) );
-
+			
 			/**
-			 * Options fields ids only need
-			 * to be unique within this box.
-			 * Prefix is not needed.
+			 * About message
 			 */
 			$cmb_options->add_field( array(
-				'name'    => esc_html__( 'Site Background Color', 'cmb2' ),
-				'desc'    => esc_html__( 'field description (optional)', 'cmb2' ),
-				'id'      => 'bg_color',
-				'type'    => 'colorpicker',
-				'default' => '#ffffff',
+				'name'    => esc_html__( 'About', 'cmb2' ),
+				'desc'    => '
+					<div class="inside">
+						<p>Be sure that you go through the plugin setup to make sure everything is working as intended.</p>
+						<a href="https://www.youtube.com/watch?v=iwofbP1EnrE" target="_blank"><strong>2 minute Setup Video</strong></a>
+						<br />
+						<a href="https://samcarlton.com/customer-chat-for-facebook" target="_blank"><strong>Support</strong></a>
+					</div>
+				',
+				'id'      => 'intro',
+				'type'    => 'text',
+				'attributes'  => array(
+					'disabled'    => 'disabled',
+					'class'				=> 'hidden'
+				),
 			) );
+			
+			/**
+			 * Facebook Page ID
+			 */
+			$cmb_options->add_field( array(
+				'name'    => esc_html__( 'Facebook Page ID', 'cmb2' ),
+				'desc'    => '
+	      	Facebook ID of page to message
+	      	<a href="https://findmyfbid.com/" target="_blank">Get it</a>
+				',
+				'id'      => 'facebook-page-id',
+				'type'    => 'text',
+				'default' => '',
+			) );
+			
+			/**
+			 * Facebook App ID
+			 */
+			$cmb_options->add_field( array(
+				'name'    => esc_html__( 'Facebook App ID', 'cmb2' ),
+				'desc'    => '
+					Facebook App ID to identify this website for Facebook
+					<a href="https://developers.facebook.com/apps/" target="_blank">Create a new App</a>
+				',
+				'id'      => 'facebook-app-id',
+				'type'    => 'text',
+				'default' => '735243603333999',
+			) );
+			
+			/**
+			 * Minimized
+			 */
+			$cmb_options->add_field( array(
+				'name'    => esc_html__( 'Is Minimized', 'cmb2' ),
+				'desc'    => '
+					Messenger shows a welcome message. <a href="https://i.imgur.com/5zknx0Y.png" target="_blank">What is the difference?</a>
+					<br />
+					*Keep in mind that after the user minimizes it, it will stay minimized regardless of this setting.
+				',
+				'id'      => 'minimized',
+				'type'    => 'checkbox',
+				'default' => false,
+			) );
+			
+			
+			/**
+			 * Language
+			 */
+			$cmb_options->add_field( array(
+				'name'    => esc_html__( 'Language', 'cmb2' ),
+				'desc'    => '
+					This uses whatever language Wordpress is set to.
+					<br />
+					<a href="'.get_site_url().'/wp-admin/options-general.php#default_role">Set Site Language</a>
+				',
+				'id'      => 'minimized',
+				'type'    => 'text',
+				'default'	=> get_locale(),
+				'attributes'  => array(
+					'readonly'    => 'readonly',
+				),
+			) );
+	}
+	
+	
+	/**
+	 * Creates post settings sections with fields etc.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 */
+	public function theme_options_page_output( $hookup ) {
+		// Output custom markup for the options-page.
+		?>
+		<div class="wrap cmb2-options-page option-<?php echo $hookup->option_key; ?>">
+			<?php if ( $hookup->cmb->prop( 'title' ) ) : ?>
+				<h2><?php echo wp_kses_post( $hookup->cmb->prop( 'title' ) ); ?></h2>
+			<?php endif; ?>
+			<?php if ( $hookup->cmb->prop( 'description' ) ) : ?>
+				<h2><?php echo wp_kses_post( $hookup->cmb->prop( 'description' ) ); ?></h2>
+			<?php endif; ?>
+			<form class="cmb-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" id="<?php echo $hookup->cmb->cmb_id; ?>" enctype="multipart/form-data" encoding="multipart/form-data">
+				<input type="hidden" name="action" value="<?php echo esc_attr( $hookup->option_key ); ?>">
+				<?php $hookup->options_page_metabox(); ?>
+				<?php submit_button( esc_attr( $hookup->cmb->prop( 'save_button' ) ), 'primary', 'submit-cmb' ); ?>
+			</form>
+		</div>
+		<?php
 	}
 
 }
