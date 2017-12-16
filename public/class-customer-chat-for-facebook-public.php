@@ -109,7 +109,7 @@ class Customer_Chat_Public {
 	public function before_body_scripts() {
 
 		$options = get_option( $this->Customer_Chat . '_options' );
-		$is_minimized = (isset($options['minimized']) && $options['minimized'] === true);
+		$is_minimized = (isset($options['minimized']) && $options['minimized']);
 
 		$facebook_page_id = $options['facebook-page-id'];
 		$facebook_app_id = $options['facebook-app-id'];
