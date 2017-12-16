@@ -115,12 +115,12 @@ class Customer_Chat {
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-customer-chat-for-facebook-cmb2-functions.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-customer-chat-for-facebook-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-customer-chat-for-facebook-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-customer-chat-for-facebook-cmb2-functions.php';
 
 		/**
 		 * The class responsible for defining all Settings.
@@ -167,8 +167,11 @@ class Customer_Chat {
 
 
 		$settings_init_general = new Customer_Chat_Settings( $this->get_plugin_name() );
+		$cmb2_settings_init_general = new Customer_Chat_CMB2_Settings( $this->get_plugin_name() );
+
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'Customer_Chat_admin_menu' );
 		$this->loader->add_action( 'admin_init', $settings_init_general, 'settings_api_init' );
+		$this->loader->add_action( 'cmb2_admin_init', $cmb2_settings_init_general, 'settings_api_init' );
 		$this->loader->add_filter( 'plugin_action_links_customer-chat-for-facebook/customer-chat-for-facebook.php', $plugin_admin, 'add_settings_link' );
 		$this->loader->add_action( 'admin_notices', $plugin_admin, 'setup_notice' );
 
