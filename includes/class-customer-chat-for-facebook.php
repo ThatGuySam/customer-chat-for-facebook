@@ -70,7 +70,7 @@ class Customer_Chat {
 		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
 			$this->version = PLUGIN_NAME_VERSION;
 		} else {
-			$this->version = '1.0.3';
+			$this->version = '1.0.3.1';
 		}
 		$this->Customer_Chat = 'customer-chat-for-facebook';
 
