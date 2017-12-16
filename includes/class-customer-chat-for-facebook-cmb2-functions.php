@@ -885,7 +885,7 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 			$cmb_options->add_field( array(
 				'name'    => esc_html__( 'Is Minimized', 'cmb2' ),
 				'desc'    => '
-					Messenger shows a welcome message. <a href="https://i.imgur.com/5zknx0Y.png" target="_blank">What is the difference?</a>
+  				Messenger shows a welcome message. <a href="https://i.imgur.com/5zknx0Y.png" target="_blank">What is the difference?</a>
 					<br />
 					*Keep in mind that after the user minimizes it, it will stay minimized regardless of this setting.
 				',
@@ -907,7 +907,7 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 					<br />
 					<a href="'.get_site_url().'/wp-admin/options-general.php#default_role">Set Site Language</a>
 				',
-				'id'      => 'minimized',
+				'id'      => 'language',
 				'type'    => 'text',
 				'default'	=> get_locale(),
 				'attributes'  => array(
