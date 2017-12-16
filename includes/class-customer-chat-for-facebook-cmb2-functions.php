@@ -864,8 +864,8 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 				'type'    => 'text',
 				'default' => '',
 			) );
-			
-			/**
+      
+      /**
 			 * Facebook App ID
 			 */
 			$cmb_options->add_field( array(
@@ -877,6 +877,20 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 				'id'      => 'facebook-app-id',
 				'type'    => 'text',
 				'default' => '735243603333999',
+			) );
+      
+      /**
+			 * Referral
+			 */
+			$cmb_options->add_field( array(
+				'name'    => esc_html__( 'Referral', 'cmb2' ),
+				'desc'    => '
+					Optional. Custom string passed to your webhook in messaging_postbacks and messaging_referrals events.
+					<a href="https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_referrals" target="_blank">More info</a>
+				',
+				'id'      => 'ref',
+				'type'    => 'text',
+				'default' => 'website',
 			) );
 			
 			/**

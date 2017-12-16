@@ -113,6 +113,7 @@ class Customer_Chat_Public {
 
 		$facebook_page_id = $options['facebook-page-id'];
 		$facebook_app_id = $options['facebook-app-id'];
+		$ref = $options['ref'];
 		$minimized = ($is_minimized) ? 'true' : 'false';
 
 		$locale = get_locale() ?: 'en_US';
@@ -139,7 +140,7 @@ class Customer_Chat_Public {
 
 				<div class="fb-customerchat"
 					page_id="<?php echo $facebook_page_id; ?>"
-					ref="website"
+					ref="<?php echo $ref; ?>"
 					minimized="<?php echo $minimized; ?>">
 				</div>
  			<?php
