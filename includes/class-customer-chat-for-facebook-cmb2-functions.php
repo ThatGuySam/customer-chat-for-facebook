@@ -10,11 +10,7 @@
  * @license  http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
  * @link     https://github.com/CMB2/CMB2
  */
-
-/**
- * Get the bootstrap! If using the plugin from wordpress.org, REMOVE THIS!
- */
-
+ 
 $plugin_path = plugin_dir_path( dirname( __FILE__ ) ) . 'submodules/CMB2/init.php';
 
 if ( file_exists( $plugin_path ) ) {
