@@ -901,6 +901,8 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 			$cmb_options->add_field( array(
 				'name'    => esc_html__( 'Language', 'cmb2' ),
 				'desc'    => '
+          <input type="text" class="regular-text" name="language" id="facebook-page-id" value="'.get_locale().'" readonly>
+          <br />
 					This uses whatever language Wordpress is set to.
 					<br />
 					<a href="'.get_site_url().'/wp-admin/options-general.php#default_role">Set Site Language</a>
@@ -909,7 +911,8 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 				'type'    => 'text',
 				'default'	=> get_locale(),
 				'attributes'  => array(
-					'readonly'    => 'readonly',
+          'readonly'    => 'readonly',
+          'class'    => 'hidden',
 				),
 			) );
 	}
