@@ -216,31 +216,5 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 				),
 			) );
 	}
-	
-	
-	/**
-	 * Creates post settings sections with fields etc.
-	 *
-	 * @since    1.0.0
-	 * @access   public
-	 */
-	public function theme_options_page_output( $hookup ) {
-		// Output custom markup for the options-page.
-		?>
-		<div class="wrap cmb2-options-page option-<?php echo $hookup->option_key; ?>">
-			<?php if ( $hookup->cmb->prop( 'title' ) ) : ?>
-				<h2><?php echo wp_kses_post( $hookup->cmb->prop( 'title' ) ); ?></h2>
-			<?php endif; ?>
-			<?php if ( $hookup->cmb->prop( 'description' ) ) : ?>
-				<h2><?php echo wp_kses_post( $hookup->cmb->prop( 'description' ) ); ?></h2>
-			<?php endif; ?>
-			<form class="cmb-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" id="<?php echo $hookup->cmb->cmb_id; ?>" enctype="multipart/form-data" encoding="multipart/form-data">
-				<input type="hidden" name="action" value="<?php echo esc_attr( $hookup->option_key ); ?>">
-				<?php $hookup->options_page_metabox(); ?>
-				<?php submit_button( esc_attr( $hookup->cmb->prop( 'save_button' ) ), 'primary', 'submit-cmb' ); ?>
-			</form>
-		</div>
-		<?php
-	}
 
 }
