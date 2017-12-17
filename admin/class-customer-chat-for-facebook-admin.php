@@ -64,42 +64,7 @@ class Customer_Chat_Admin {
 	 * @since    1.0.0
 	 */
 	public function Customer_Chat_admin_menu() {
-		 add_options_page( __('Customer Chat for Facebook', $this->Customer_Chat), __('Customer Chat for Facebook', $this->Customer_Chat), 'manage_options', $this->Customer_Chat, array($this, 'display_plugin_admin_page'));
-	}
-
-	/**
-	 * Settings - Validates saved options
-	 *
-	 * @since 		1.0.0
-	 * @param 		array 		$input 			array of submitted plugin options
-	 * @return 		array 						array of validated plugin options
-	 */
-	public function settings_sanitize( $input ) {
-		// Initialize the new array that will hold the sanitize values
-		$new_input = array();
-		if(isset($input)) {
-			// Loop through the input and sanitize each of the values
-			foreach ( $input as $key => $val ) {
-				$new_input[ $key ] = sanitize_text_field( $val );
-			}
-		}
-		return $new_input;
-	} // sanitize()
-
-	/**
-	 * Renders Settings Tabs
-	 *
-	 * @since 		1.0.0
-	 * @return 		mixed 			The settings field
-	 */
-	function Customer_Chat_render_tabs() {
-		$current_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'general';
-		echo '<h2 class="nav-tab-wrapper">';
-		foreach ( $this->plugin_settings_tabs as $tab_key => $tab_caption ) {
-			$active = $current_tab == $tab_key ? 'nav-tab-active' : '';
-			echo '<a class="nav-tab ' . $active . '" href="?page=' . $this->Customer_Chat . '&tab=' . $tab_key . '">' . $tab_caption . '</a>';
-		}
-		echo '</h2>';
+		 // add_options_page( __('Customer Chat for Facebook', $this->Customer_Chat), __('Customer Chat for Facebook', $this->Customer_Chat), 'manage_options', $this->Customer_Chat, array($this, 'display_plugin_admin_page'));
 	}
 
 	/**
@@ -110,7 +75,7 @@ class Customer_Chat_Admin {
 	 */
 	function add_settings_link( $links ) {
 		$mylinks = array(
-			'<a href="' . admin_url( 'options-general.php?page=customer-chat-for-facebook' ) . '">Settings</a>',
+			'<a href="' . admin_url( 'options-general.php?page=customer-chat-for-facebook_options' ) . '">Settings</a>',
 		);
 		return array_merge( $links, $mylinks );
 	}
@@ -132,14 +97,14 @@ class Customer_Chat_Admin {
 	public function setup_notice() {
 
 			$options 	= get_option( $this->Customer_Chat . '_options' );
+			$page = isset($_GET['page']) ? $_GET['page'] : 'No page for you!!!';
 
       // If the Facebook Page ID is not set and we are not on the settings page
-			if ( empty( $options['facebook-page-id'] ) && $_GET['page'] !== $this->Customer_Chat ) {
+			if ( empty( $options['facebook-page-id'] ) && $page !== $this->Customer_Chat . '_options' ) {
 				$site_url = get_site_url();
-				echo $this->Customer_Chat;
 		    ?>
 				    <div class="notice notice-error">
-				        <p>Facebook Customer Chat needs to be setup. <a href="<?php echo $site_url; ?>/wp-admin/options-general.php?page=customer-chat-for-facebook">Setup</a></p>
+				        <p>Facebook Customer Chat needs to be setup. <a href="<?php echo $site_url; ?>/wp-admin/options-general.php?page=customer-chat-for-facebook_options">Setup</a></p>
 				    </div>
 		    <?php
 			}
