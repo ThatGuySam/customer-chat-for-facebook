@@ -174,7 +174,7 @@ class Customer_Chat_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->Customer_Chat, plugin_dir_url( __FILE__ ) . 'css/customer-chat-for-facebook-admin.css', array(), $this->version, 'all' );
+		// wp_enqueue_style( $this->Customer_Chat, plugin_dir_url( __FILE__ ) . 'css/customer-chat-for-facebook-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -197,7 +197,7 @@ class Customer_Chat_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->Customer_Chat, plugin_dir_url( __FILE__ ) . 'js/customer-chat-for-facebook-admin.js', array( 'jquery' ), $this->version, false );
+		// wp_enqueue_script( $this->Customer_Chat, plugin_dir_url( __FILE__ ) . 'js/customer-chat-for-facebook-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 
