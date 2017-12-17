@@ -231,7 +231,7 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 				'desc'    => '
   				Determines if the chat should be shown on all pages. 
 					<br />
-					When checked: A new option will appear on each page to add the chat and will be off by default. 
+					When set to No: A new option will appear on each page to add the chat and will be off by default. 
 				',
 				'id'      => 'show-on-all-pages',
         'type'    => 'select',
