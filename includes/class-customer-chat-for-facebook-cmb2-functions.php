@@ -78,8 +78,8 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 	 * @param  mixed  $default    Optional default fallback value
 	 * @return array               Options array or specific field
 	 */
-	public function  cmb2_get_option( $option_key, $field_id = '', $default = false ) {
-		return CMB2_Options::get( $option_key )->get( $field_id, $default );
+	public function  cmb2_get_option( $field_id = '', $default = false ) {
+		return CMB2_Options::get( $this->option_key )->get( $field_id, $default );
 	}
 
 	/**
@@ -89,6 +89,38 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 	 * @access   public
 	 */
 	public function settings_post_api_init() {
+      
+      $is_showing_on_all_pages = $this->cmb2_get_option('show-on-all-pages', 'true');// isset($options['show-on-all-pages']) ? $options['show-on-all-pages'] : false;
+      
+      var_dump($is_showing_on_all_pages);
+      // die();
+      
+      if ($is_showing_on_all_pages !== 'true') {
+        $cmb_single_options = new_cmb2_box( array(
+  				'id'           => $this->Customer_Chat . '_page_options',
+  				'title'        => esc_html__( 'Customer Chat for Facebook', 'cmb2' ),
+  				'object_types' => array( 
+            'page', 
+            'post'
+          ),
+          'context' => 'side',
+          'priority' => 'low',
+        ) );
+        
+        /**
+  			 * Show on page
+  			 */
+        $cmb_single_options->add_field( array(
+  				'name'    => esc_html__( 'Is showing', 'cmb2' ),
+  				'desc'    => '
+    				Determines if the chat should be shown. 
+  				',
+  				'id'      => $this->Customer_Chat . '_show',
+  				'type'    => 'checkbox',
+  				'default' => false,
+  			) );
+        
+      }
 			
 			/**
 			 * Registers options page menu item and form.
@@ -192,6 +224,26 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 				'id'      => 'minimized',
 				'type'    => 'checkbox',
 				'default' => false,
+			) );
+      
+      /**
+			 * Show on all pages
+			 */
+			$cmb_options->add_field( array(
+				'name'    => esc_html__( 'Is showing on all pages', 'cmb2' ),
+				'desc'    => '
+  				Determines if the chat should be shown on all pages. 
+					<br />
+					When checked: A new option will appear on each page to add the chat and will be off by default. 
+				',
+				'id'      => 'show-on-all-pages',
+        'type'    => 'select',
+        'show_option_none' => false,
+        'default'          => 'true',
+        'options'          => array(
+          'true' => __( 'Yes', 'cmb2' ),
+          'false'   => __( 'No', 'cmb2' ),
+        ),
 			) );
 			
 			

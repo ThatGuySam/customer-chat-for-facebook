@@ -120,6 +120,13 @@ class Customer_Chat_Public {
 	 * @since    1.0.0
 	 */
 	public function before_body_scripts() {
+		
+		$is_showing_on_all_pages = CMB2_Options::get( $this->Customer_Chat . '_options' )->get( 'show-on-all-pages', 'true' );
+		$show = get_post_meta( get_the_ID(), $this->Customer_Chat . '_show', true );
+    
+		if ($is_showing_on_all_pages !== 'true' && $show !== "on") {
+			return '';
+		}
 
 		$options = get_option( $this->Customer_Chat . '_options' );
 		$is_minimized = (isset($options['minimized']) && $options['minimized']);
