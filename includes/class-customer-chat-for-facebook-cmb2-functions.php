@@ -92,9 +92,6 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
       
       $is_showing_on_all_pages = $this->cmb2_get_option('show-on-all-pages', 'true');// isset($options['show-on-all-pages']) ? $options['show-on-all-pages'] : false;
       
-      var_dump($is_showing_on_all_pages);
-      // die();
-      
       if ($is_showing_on_all_pages !== 'true') {
         $cmb_single_options = new_cmb2_box( array(
   				'id'           => $this->Customer_Chat . '_page_options',
