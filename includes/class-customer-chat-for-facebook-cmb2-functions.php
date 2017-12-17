@@ -154,8 +154,6 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 					<div class="inside">
 						<p>Be sure that you go through the plugin setup to make sure everything is working as intended.</p>
 						<a href="https://www.youtube.com/watch?v=iwofbP1EnrE" target="_blank"><strong>2 minute Setup Video</strong></a>
-						<br />
-						<a href="https://samcarlton.com/customer-chat-for-facebook" target="_blank"><strong>Support</strong></a>
 					</div>
 				',
 				'id'      => 'intro',
@@ -262,6 +260,24 @@ class Customer_Chat_CMB2_Settings extends Customer_Chat_Admin {
 				'attributes'  => array(
           'readonly'    => 'readonly',
           'class'    => 'hidden',
+				),
+			) );
+      
+      /**
+			 * Support
+			 */
+			$cmb_options->add_field( array(
+				'name'    => esc_html__( 'Help', 'cmb2' ),
+				'desc'    => '
+					<div class="inside">
+						<a href="https://samcarlton.com/customer-chat-for-facebook" target="_blank"><strong>Support</strong></a>
+					</div>
+				',
+				'id'      => 'support',
+				'type'    => 'text',
+				'attributes'  => array(
+					'disabled'    => 'disabled',
+					'class'				=> 'hidden'
 				),
 			) );
 	}
