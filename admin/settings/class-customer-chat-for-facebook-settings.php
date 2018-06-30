@@ -101,6 +101,14 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 		);
 		
 		add_settings_field(
+			'logged_out_greeting',
+			apply_filters( $this->Customer_Chat . '-logged_out_greeting-label', __( 'Logged out Greeting', $this->Customer_Chat ) ),
+			array( $this, 'logged_out_greeting' ),
+			$this->Customer_Chat,
+			$this->Customer_Chat . '-display-options' // section to add to
+		);
+		
+		add_settings_field(
 			'greeting_dialog_display',
 			apply_filters( $this->Customer_Chat . '-greeting_dialog_display-label', __( 'Greeting Dialog Display', $this->Customer_Chat ) ),
 			array( $this, 'greeting_dialog_display_options_field' ),
@@ -235,6 +243,37 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 		  </p>
 		<?php
 	} // logged_in_greeting()
+	
+	
+	/**
+	 * Logged out Greeting
+	 *
+	 * @since 		1.0.0
+	 * @return 		mixed 			The settings field
+	 */
+	public function logged_out_greeting() {
+
+	  $options 	= get_option( $this->Customer_Chat . '_options' );
+	  $option 	= '';
+
+	  if ( ! empty( $options['logged_out_greeting'] ) ) {
+	    $option = $options['logged_out_greeting'];
+	  }
+
+	  ?>
+	    <textarea
+	        id="<?php echo $this->Customer_Chat; ?>_options[logged_out_greeting]"
+	        name="<?php echo $this->Customer_Chat; ?>_options[logged_out_greeting]"
+	        rows="2"
+	        cols="50"
+	        maxlength="80"
+	      ><?php echo $option; ?></textarea>
+	    <p class="description">
+	      The greeting text that will be displayed if the user is currently not logged in to Facebook. <br/>
+	      Maximum 80 characters.
+	    </p>
+	  <?php
+	} // logged_out_greeting()
 	
 	
 	/**
