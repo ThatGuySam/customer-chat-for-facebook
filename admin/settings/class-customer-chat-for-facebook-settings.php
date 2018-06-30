@@ -83,11 +83,11 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 			$this->Customer_Chat,
 			$this->Customer_Chat . '-display-options' // section to add to
 		);
-
+		
 		add_settings_field(
-			'minimized',
-			apply_filters( $this->Customer_Chat . '-minimized-label', __( 'Is Minimized', $this->Customer_Chat ) ),
-			array( $this, 'minimized_options_field' ),
+			'greeting_dialog_display',
+			apply_filters( $this->Customer_Chat . '-greeting_dialog_display-label', __( 'Greeting Dialog Display', $this->Customer_Chat ) ),
+			array( $this, 'greeting_dialog_display_options_field' ),
 			$this->Customer_Chat,
 			$this->Customer_Chat . '-display-options' // section to add to
 		);
@@ -157,28 +157,54 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
       <a href="https://developers.facebook.com/apps/" target="_blank">Create a new App</a>
     </p> <?php
   } // facebook_page_id()
-
+	
+	
 	/**
-	 * Is Minimized
+	 * Greeting Dialog Display
 	 *
 	 * @since 		1.0.0
 	 * @return 		mixed 			The settings field
 	 */
-	public function minimized_options_field() {
+	public function greeting_dialog_display_options_field() {
 
 		$options 	= get_option( $this->Customer_Chat . '_options' );
-		$option 	= 0;
-
-		if ( ! empty( $options['minimized'] ) ) {
-			$option = $options['minimized'];
+		$option 	= 'hide';
+		
+		$select_options = array(
+			'show' => 'Show',
+			'hide' => 'Hide',
+			'fade' => 'Fade',
+			'greeting_dialog_delay' => 'Use Delay'
+		);
+		
+		// Try this option first if it's empty then the user has probably just upgraded
+		if ( ! empty( $options['greeting_dialog_display'] ) ) {
+			$option = $options['greeting_dialog_display'];
+		} else if ( ! empty( $options['minimized'] ) ) {
+			// Possible values
+			// 'on'
+			// '1'
+			// 0
+			// Determine if original option was to not minimized
+			$is_not_minimized = ($options['minimized'] === 0);
+			// Translate to respective select option
+			$option = ($is_not_minimized) ? 'hide' : 'show';
 		}
-
-		?><input type="checkbox" id="<?php echo $this->Customer_Chat; ?>_options[minimized]" name="<?php echo $this->Customer_Chat; ?>_options[minimized]" value="1" <?php checked( $option, 1 , true ); ?> />
-		<p class="description">
-      Messenger shows a welcome message. <a href="https://i.imgur.com/5zknx0Y.png" target="_blank">What's the difference?</a>
-      <br />
-      *Keep in mind that after the user minimizes it, it will stay minimized regardless of this setting.
-    </p> <?php
+		
+		?>
+		
+			<select id="<?php echo $this->Customer_Chat; ?>_options[greeting_dialog_display]" name="<?php echo $this->Customer_Chat; ?>_options[greeting_dialog_display]">
+				<?php foreach ($select_options as $key => $select_option): ?>
+					<option value="<?php echo $key; ?>" <?php selected($option, $key); ?>><?php echo $select_option; ?></option>
+				<?php endforeach; ?>
+			</select>
+					
+			<p class="description">
+	      How the messenger dialog will display when the page loads. <a href="https://i.imgur.com/5zknx0Y.png" target="_blank">What's the difference?</a>
+	      <br />
+	      *Keep in mind that after the user minimizes it, it will stay minimized regardless of this setting.
+	    </p>
+		<?php
 	} // minimized_options_field()
 
 

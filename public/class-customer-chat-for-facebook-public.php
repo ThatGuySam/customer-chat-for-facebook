@@ -113,7 +113,7 @@ class Customer_Chat_Public {
 
 		$facebook_page_id = $options['facebook-page-id'];
 		$facebook_app_id = $options['facebook-app-id'];
-		$minimized = ($is_minimized) ? 'true' : 'false';
+		$greeting_dialog_display = $options['greeting_dialog_display'] ?: 'hide';
 
 		$locale = get_locale() ?: 'en_US';
 
@@ -140,7 +140,7 @@ class Customer_Chat_Public {
 				<div class="fb-customerchat"
 					page_id="<?php echo $facebook_page_id; ?>"
 					ref="website"
-					minimized="<?php echo $minimized; ?>">
+					greeting_dialog_display="<?php echo $greeting_dialog_display; ?>">
 				</div>
  			<?php
 
