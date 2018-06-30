@@ -114,7 +114,8 @@ class Customer_Chat_Public {
 			$facebook_page_id = $options['facebook-page-id'];
 			$facebook_app_id = $options['facebook-app-id'];
 			
-			$theme_color = $options['theme_color'];
+			$theme_color = &$options['theme_color'];
+			$logged_in_greeting = &$options['logged_in_greeting'] ?: null;
 			$greeting_dialog_display = $options['greeting_dialog_display'] ?: 'hide';
 			$ref = $options['ref'] ?: 'website';
 
@@ -128,6 +129,7 @@ class Customer_Chat_Public {
 			
 			// Optional attributes
 			if (!empty($theme_color)) $attributes['theme_color'] = $theme_color;
+			if (!empty($logged_in_greeting)) $attributes['logged_in_greeting'] = $logged_in_greeting;
 			
 		 ?>
 			 <script>
