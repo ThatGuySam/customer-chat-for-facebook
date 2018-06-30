@@ -32,7 +32,7 @@
 				<?php
 				switch ($tab) {
 					case 'faq': ?>
-						<h3><?php echo __( "Q: Why isn't minimize working?", $this->Customer_Chat ); ?></h3>
+						<h3><?php echo __( "Q: Why isn't it using the Greeting Dialog Display I set?", $this->Customer_Chat ); ?></h3>
 						<span>
 							<?php echo __( "A: If the user at anytime closes the welcome message the plugin remembers that and keeps it closed for the user from then on.
               You can preview it by opening the site in a incognito window.", $this->Customer_Chat ); ?>
