@@ -108,19 +108,21 @@ class Customer_Chat_Public {
 	 */
 	public function before_body_scripts() {
 
-		$options = get_option( $this->Customer_Chat . '_options' );
-		$is_minimized = (isset($options['minimized']) && $options['minimized']);
+			$options = get_option( $this->Customer_Chat . '_options' );
+			$is_minimized = (isset($options['minimized']) && $options['minimized']);
 
-		$facebook_page_id = $options['facebook-page-id'];
-		$facebook_app_id = $options['facebook-app-id'];
-		$greeting_dialog_display = $options['greeting_dialog_display'] ?: 'hide';
+			$facebook_page_id = $options['facebook-page-id'];
+			$facebook_app_id = $options['facebook-app-id'];
+			$greeting_dialog_display = $options['greeting_dialog_display'] ?: 'hide';
+			$ref = $options['ref'] ?: 'website';
 
-		$locale = get_locale() ?: 'en_US';
-		
-		$attributes = array(
-			'page_id' => filter_var($facebook_page_id, FILTER_VALIDATE_INT),
-			'greeting_dialog_display' => filter_var($greeting_dialog_display, FILTER_SANITIZE_ENCODED)
-		);
+			$locale = get_locale() ?: 'en_US';
+
+			$attributes = array(
+				'page_id' => filter_var($facebook_page_id, FILTER_VALIDATE_INT),
+				'greeting_dialog_display' => filter_var($greeting_dialog_display, FILTER_SANITIZE_ENCODED),
+				'ref' => filter_var($ref, FILTER_SANITIZE_ENCODED),
+			);
 
 		 ?>
 			 <script>

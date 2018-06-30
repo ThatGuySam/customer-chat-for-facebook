@@ -91,6 +91,14 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 			$this->Customer_Chat,
 			$this->Customer_Chat . '-display-options' // section to add to
 		);
+		
+		add_settings_field(
+			'ref',
+			apply_filters( $this->Customer_Chat . '-ref-label', __( 'Reference', $this->Customer_Chat ) ),
+			array( $this, 'ref' ),
+			$this->Customer_Chat,
+			$this->Customer_Chat . '-display-options' // section to add to
+		);
 
 		add_settings_field(
 			'language',
@@ -206,6 +214,28 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 	    </p>
 		<?php
 	} // minimized_options_field()
+	
+	/**
+   * Ref
+   *
+   * @since 		1.0.0
+   * @return 		mixed 			The settings field
+   */
+  public function ref() {
+
+    $options 	= get_option( $this->Customer_Chat . '_options' );
+		// Initial option
+    $option 	= 'website';
+
+    if ( ! empty( $options['ref'] ) ) {
+      $option = $options['ref'];
+    }
+
+    ?><input type="text" id="<?php echo $this->Customer_Chat; ?>_options[ref]" name="<?php echo $this->Customer_Chat; ?>_options[ref]" value="<?php echo $option; ?>" />
+    <p class="description">
+      You may pass an optional ref parameter if you wish to include additional context to be passed back in the webhook event. This can be used for many purposes, such as tracking which page the user started the conversation on, directing the user to specific content or features available within the bot, or tying a Messenger user to a session or account on the website.
+    </p> <?php
+  } // facebook_page_id()
 
 
 	/**
