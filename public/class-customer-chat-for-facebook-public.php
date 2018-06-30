@@ -113,6 +113,8 @@ class Customer_Chat_Public {
 
 			$facebook_page_id = $options['facebook-page-id'];
 			$facebook_app_id = $options['facebook-app-id'];
+			
+			$theme_color = $options['theme_color'];
 			$greeting_dialog_display = $options['greeting_dialog_display'] ?: 'hide';
 			$ref = $options['ref'] ?: 'website';
 
@@ -123,7 +125,10 @@ class Customer_Chat_Public {
 				'greeting_dialog_display' => filter_var($greeting_dialog_display, FILTER_SANITIZE_ENCODED),
 				'ref' => filter_var($ref, FILTER_SANITIZE_ENCODED),
 			);
-
+			
+			// Optional attributes
+			if (!empty($theme_color)) $attributes['theme_color'] = $theme_color;
+			
 		 ?>
 			 <script>
 				 window.fbAsyncInit = function() {

@@ -85,6 +85,14 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 		);
 		
 		add_settings_field(
+			'theme_color',
+			apply_filters( $this->Customer_Chat . '-theme_color-label', __( 'Color', $this->Customer_Chat ) ),
+			array( $this, 'theme_color' ),
+			$this->Customer_Chat,
+			$this->Customer_Chat . '-display-options' // section to add to
+		);
+		
+		add_settings_field(
 			'greeting_dialog_display',
 			apply_filters( $this->Customer_Chat . '-greeting_dialog_display-label', __( 'Greeting Dialog Display', $this->Customer_Chat ) ),
 			array( $this, 'greeting_dialog_display_options_field' ),
@@ -168,6 +176,29 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 	
 	
 	/**
+   * Theme Color
+   *
+   * @since 		1.0.0
+   * @return 		mixed 			The settings field
+   */
+  public function theme_color() {
+
+    $options 	= get_option( $this->Customer_Chat . '_options' );
+    $option 	= '';
+
+    if ( ! empty( $options['theme_color'] ) ) {
+      $option = $options['theme_color'];
+    }
+
+    ?><input type="color" id="<?php echo $this->Customer_Chat; ?>_options[theme_color]" name="<?php echo $this->Customer_Chat; ?>_options[theme_color]" value="<?php echo $option; ?>" />
+    <p class="description">
+      The color to use as a theme for the plugin, including the background color of the customer chat plugin icon and the background color of any messages sent by users. Supports any hexadecimal color code with a leading number sign (e.g. #0084FF), except white. We highly recommend you choose a color that has a high contrast to white. <br />
+			Default is White/Snow
+    </p> <?php
+  } // theme_color()
+	
+	
+	/**
 	 * Greeting Dialog Display
 	 *
 	 * @since 		1.0.0
@@ -213,7 +244,7 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 	      *Keep in mind that after the user minimizes it, it will stay minimized regardless of this setting.
 	    </p>
 		<?php
-	} // minimized_options_field()
+	} // greeting_dialog_display_options_field()
 	
 	/**
    * Ref
@@ -235,7 +266,7 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
     <p class="description">
       You may pass an optional ref parameter if you wish to include additional context to be passed back in the webhook event. This can be used for many purposes, such as tracking which page the user started the conversation on, directing the user to specific content or features available within the bot, or tying a Messenger user to a session or account on the website.
     </p> <?php
-  } // facebook_page_id()
+  } // ref()
 
 
 	/**
