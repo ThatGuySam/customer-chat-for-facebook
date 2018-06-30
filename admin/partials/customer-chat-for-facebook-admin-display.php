@@ -35,6 +35,10 @@
 							<?php echo __( "A: If the user at anytime closes the welcome message the plugin remembers that and keeps it closed for the user from then on.
               You can preview it by opening the site in a incognito window.", $this->Customer_Chat ); ?>
             </span>
+						<h3><?php echo __( "Q: Why didn't that fix my issue?", $this->Customer_Chat ); ?></h3>
+						<span>
+							<?php echo __( 'A: Try taking a look at <a href="https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin" target="_blank"><strong>Facebook\'s Official documentation</strong></a>.', $this->Customer_Chat ); ?>
+            </span>
 						<h3><?php echo __( "Q: Have more issues?", $this->Customer_Chat ); ?></h3>
 						<span>
 							<?php echo __( 'A: Contact me on <a href="http://samcarlton.com/customer-chat-for-facebook" target="_blank"><strong>my website</strong></a>.', $this->Customer_Chat ); ?>
