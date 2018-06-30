@@ -52,7 +52,7 @@
 								If the SDK that the "winning" plugin uses doesn\'t support Customer Chat then it will lock out this plugin. <br/>
 								It\'s an ongoing issue and you just have to mix and match until you get a plugin that plays well with others. <br/>
 								Try picking a plugin that is updated frequently or recently. That usually means the developer does a lot of work on it to make sure things like that don\'t happen. <br/>
-								As another option you can go ahead delete this plugin(it won\'t hurt my feelings) and add the code manually using <a href="https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin/#steps" target="_blank"><strong>Facebook\'s Documentation</strong></a> and <a href="https://wordpress.org/plugins/custom-css-js/" target="_blank"><strong>this plugin</strong></a>.', $this->Customer_Chat ); ?>
+								As another option you can go ahead delete this plugin(it won\'t hurt my feelings) and add the code manually using <a href="https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin/#steps" target="_blank"><strong>Facebook\'s Documentation</strong></a> and <a href="/wp-admin/plugin-install.php?tab=plugin-information&plugin=custom-css-js&TB_iframe=true&width=772&height=669" target="_blank"><strong>this plugin</strong></a>.', $this->Customer_Chat ); ?>
             </span>
 						
 						<h3><?php echo __( "Q: Why isn't chat showing up in my language?", $this->Customer_Chat ); ?></h3>
