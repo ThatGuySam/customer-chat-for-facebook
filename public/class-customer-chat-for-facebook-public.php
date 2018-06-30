@@ -116,6 +116,11 @@ class Customer_Chat_Public {
 		$greeting_dialog_display = $options['greeting_dialog_display'] ?: 'hide';
 
 		$locale = get_locale() ?: 'en_US';
+		
+		$attributes = array(
+			'page_id' => filter_var($facebook_page_id, FILTER_VALIDATE_INT),
+			'greeting_dialog_display' => filter_var($greeting_dialog_display, FILTER_SANITIZE_ENCODED)
+		);
 
 		 ?>
 			 <script>
@@ -138,9 +143,9 @@ class Customer_Chat_Public {
 				</script>
 
 				<div class="fb-customerchat"
-					page_id="<?php echo $facebook_page_id; ?>"
-					ref="website"
-					greeting_dialog_display="<?php echo $greeting_dialog_display; ?>">
+					<?php foreach ($attributes as $name => $value): ?>
+						<?php echo $name; ?>="<?php echo $value; ?>"
+					<?php endforeach; ?>>
 				</div>
  			<?php
 
