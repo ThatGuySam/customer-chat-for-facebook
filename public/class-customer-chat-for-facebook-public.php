@@ -108,15 +108,33 @@ class Customer_Chat_Public {
 	 */
 	public function before_body_scripts() {
 
-		$options = get_option( $this->Customer_Chat . '_options' );
-		$is_minimized = (isset($options['minimized']) && $options['minimized']);
+			$options = get_option( $this->Customer_Chat . '_options' );
+			$is_minimized = (isset($options['minimized']) && $options['minimized']);
 
-		$facebook_page_id = $options['facebook-page-id'];
-		$facebook_app_id = $options['facebook-app-id'];
-		$minimized = ($is_minimized) ? 'true' : 'false';
+			$facebook_page_id = $options['facebook-page-id'];
+			$facebook_app_id = $options['facebook-app-id'];
+			
+			$theme_color = &$options['theme_color'];
+			$logged_in_greeting = &$options['logged_in_greeting'] ?: null;
+			$logged_out_greeting = &$options['logged_out_greeting'] ?: null;
+			$greeting_dialog_display = &$options['greeting_dialog_display'] ?: 'hide';
+			$greeting_dialog_delay = &$options['greeting_dialog_delay'] ?: null;
+			$ref = $options['ref'] ?: 'website';
 
-		$locale = get_locale() ?: 'en_US';
+			$locale = get_locale() ?: 'en_US';
 
+			$attributes = array(
+				'page_id' => filter_var($facebook_page_id, FILTER_VALIDATE_INT),
+				'greeting_dialog_display' => filter_var($greeting_dialog_display, FILTER_SANITIZE_ENCODED),
+				'ref' => filter_var($ref, FILTER_SANITIZE_ENCODED),
+			);
+			
+			// Optional attributes
+			if (!empty($theme_color)) $attributes['theme_color'] = $theme_color;
+			if (!empty($logged_in_greeting)) $attributes['logged_in_greeting'] = $logged_in_greeting;
+			if (!empty($logged_out_greeting)) $attributes['logged_out_greeting'] = $logged_out_greeting;
+			if (!empty($greeting_dialog_delay)) $attributes['greeting_dialog_delay'] = $greeting_dialog_delay;
+			
 		 ?>
 			 <script>
 				 window.fbAsyncInit = function() {
@@ -138,9 +156,9 @@ class Customer_Chat_Public {
 				</script>
 
 				<div class="fb-customerchat"
-					page_id="<?php echo $facebook_page_id; ?>"
-					ref="website"
-					minimized="<?php echo $minimized; ?>">
+					<?php foreach ($attributes as $name => $value): ?>
+						<?php echo $name; ?>="<?php echo $value; ?>"
+					<?php endforeach; ?>>
 				</div>
  			<?php
 
