@@ -5,7 +5,7 @@ Tags: facebook, messenger, chat
 Requires at least: 3.0.1
 Tested up to: 4.9.1
 Requires PHP: 5.6
-Stable tag: 1.0.3.1
+Stable tag: 1.0.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,8 +57,16 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 
 == Changelog ==
 
+= 1.0.3.2 =
+* Added Color option
+* Added Greeting options
+* Added Ref option
+* Added new FAQs
+* Added link to Facebook Documentation
+* Update to Greeting Display option since minimized is deprecated
+
 = 1.0.3.1 =
-Fix Minimized option not working
+* Fix Minimized option not working
 
 = 1.0.3 =
 * Added a new setting to show language and where to update it
@@ -77,4 +85,4 @@ Fix Minimized option not working
 == Upgrade Notice ==
 
 = 1.0.0 =
-We've released!
+* We've released!
