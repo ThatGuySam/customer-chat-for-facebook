@@ -117,7 +117,8 @@ class Customer_Chat_Public {
 			$theme_color = &$options['theme_color'];
 			$logged_in_greeting = &$options['logged_in_greeting'] ?: null;
 			$logged_out_greeting = &$options['logged_out_greeting'] ?: null;
-			$greeting_dialog_display = $options['greeting_dialog_display'] ?: 'hide';
+			$greeting_dialog_display = &$options['greeting_dialog_display'] ?: 'hide';
+			$greeting_dialog_delay = &$options['greeting_dialog_delay'] ?: null;
 			$ref = $options['ref'] ?: 'website';
 
 			$locale = get_locale() ?: 'en_US';
@@ -132,6 +133,7 @@ class Customer_Chat_Public {
 			if (!empty($theme_color)) $attributes['theme_color'] = $theme_color;
 			if (!empty($logged_in_greeting)) $attributes['logged_in_greeting'] = $logged_in_greeting;
 			if (!empty($logged_out_greeting)) $attributes['logged_out_greeting'] = $logged_out_greeting;
+			if (!empty($greeting_dialog_delay)) $attributes['greeting_dialog_delay'] = $greeting_dialog_delay;
 			
 		 ?>
 			 <script>

@@ -117,6 +117,14 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 		);
 		
 		add_settings_field(
+			'greeting_dialog_delay',
+			apply_filters( $this->Customer_Chat . '-greeting_dialog_delay-label', __( 'Greeting Dialog Delay', $this->Customer_Chat ) ),
+			array( $this, 'greeting_dialog_delay' ),
+			$this->Customer_Chat,
+			$this->Customer_Chat . '-display-options' // section to add to
+		);
+		
+		add_settings_field(
 			'ref',
 			apply_filters( $this->Customer_Chat . '-ref-label', __( 'Reference', $this->Customer_Chat ) ),
 			array( $this, 'ref' ),
@@ -323,6 +331,31 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 	    </p>
 		<?php
 	} // greeting_dialog_display_options_field()
+	
+	
+	/**
+   * Greeting Dialog Delay
+   *
+   * @since 		1.0.0
+   * @return 		mixed 			The settings field
+   */
+  public function greeting_dialog_delay() {
+
+    $options 	= get_option( $this->Customer_Chat . '_options' );
+    $option 	= '10';
+
+    if ( ! empty( $options['greeting_dialog_delay'] ) ) {
+      $option = $options['greeting_dialog_delay'];
+    }
+
+    ?><input type="text" id="<?php echo $this->Customer_Chat; ?>_options[greeting_dialog_delay]" name="<?php echo $this->Customer_Chat; ?>_options[greeting_dialog_delay]" value="<?php echo $option; ?>" />
+    <p class="description">
+      Only applies if Greeting Dialog Display is set to "Fade"<br />
+			Sets the number of seconds of delay before the greeting dialog is shown after the plugin is loaded. <br />
+			This can be used to customize when you want the greeting dialog to appear.
+    </p> <?php
+  } // greeting_dialog_delay()
+	
 	
 	/**
    * Ref
