@@ -298,8 +298,7 @@ class Customer_Chat_Settings extends Customer_Chat_Admin {
 		$select_options = array(
 			'show' => 'Show',
 			'hide' => 'Hide',
-			'fade' => 'Fade',
-			'greeting_dialog_delay' => 'Use Delay'
+			'fade' => 'Fade'
 		);
 		
 		// Try this option first if it's empty then the user has probably just upgraded
