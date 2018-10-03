@@ -1,4 +1,4 @@
-# Facebook Customer Chat Plugin
+# Customer Chat for Facebook Plugin
 
 I’ve made a plugin for the new Customer Chat Beta so you can try Facebook Messenger on your own website!
 
@@ -29,7 +29,7 @@ Since this is a newer experimental plugin it requires some setup to get going.
 
 1. Log in to your WordPress site.
 1. Install and activate the plugin.
-1. In the left sidebar go to **Settings > Facebook Customer Chat**.
+1. In the left sidebar go to **Settings > Customer Chat for Facebook**.
 1. Enter your **Facebook Page ID**.
 1. Select whether you want the messenger to be minimized by default.
 1. Click **Save Settings**.

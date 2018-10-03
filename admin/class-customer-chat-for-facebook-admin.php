@@ -139,7 +139,7 @@ class Customer_Chat_Admin {
 				echo $this->Customer_Chat;
 		    ?>
 				    <div class="notice notice-error">
-				        <p>Facebook Customer Chat needs to be setup. <a href="<?php echo $site_url; ?>/wp-admin/options-general.php?page=customer-chat-for-facebook">Setup</a></p>
+				        <p>Customer Chat for Facebook needs to be setup. <a href="<?php echo $site_url; ?>/wp-admin/options-general.php?page=customer-chat-for-facebook">Setup</a></p>
 				    </div>
 		    <?php
 			}
