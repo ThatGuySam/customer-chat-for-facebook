@@ -142,7 +142,7 @@ class Customer_Chat_Public {
 						 appId            : '<?php echo $facebook_app_id; ?>',
 						 autoLogAppEvents : true,
 						 xfbml            : true,
-						 version          : 'v2.11'
+						 version          : 'v3.1'
 					 });
 				 };
 
