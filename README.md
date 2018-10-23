@@ -2,7 +2,7 @@
 
 This is a plugin for Facebook's Customer Chat so you can try the Official Facebook Messenger on your own Wordpress site!
 
-You can also open the chat via a special button with the follow shortcode:
+You can also open the chat via a special button with the following shortcode:
 `[ccfb_toggle]`
 
 And with custom text and class:
