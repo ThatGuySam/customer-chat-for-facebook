@@ -142,7 +142,7 @@ class Customer_Chat_Public {
 						 appId            : '<?php echo $facebook_app_id; ?>',
 						 autoLogAppEvents : true,
 						 xfbml            : true,
-						 version          : 'v2.11'
+						 version          : 'v3.1'
 					 });
 				 };
 
@@ -150,7 +150,7 @@ class Customer_Chat_Public {
 						var js, fjs = d.getElementsByTagName(s)[0];
 						if (d.getElementById(id)) {return;}
 						js = d.createElement(s); js.id = id;
-						js.src = "https://connect.facebook.net/<?php echo $locale; ?>/sdk.js";
+						js.src = "https://connect.facebook.net/<?php echo $locale; ?>/sdk/xfbml.customerchat.js";
 						fjs.parentNode.insertBefore(js, fjs);
 					}(document, 'script', 'facebook-jssdk'));
 				</script>
