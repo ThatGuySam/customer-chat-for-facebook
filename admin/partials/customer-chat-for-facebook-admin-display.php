@@ -60,11 +60,11 @@
 							<?php echo __( "A: It’s about the order in which things load. 
 								Most facebook plugins use the same SDK <br />
 
-								https://connect.facebook.net/en_US/sdk.js <br />
+								https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js <br />
 
 								However, when you load the SDK you have the option to match the language of the site, not just english, like so: <br />
 
-								https://connect.facebook.net/hr/sdk.js <br />
+								https://connect.facebook.net/hr/sdk/xfbml.customerchat.js <br />
 
 								Unfortunately some plugin authors forget to honor the site language.  <br />
 
