@@ -70,7 +70,7 @@ class Customer_Chat {
 		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
 			$this->version = PLUGIN_NAME_VERSION;
 		} else {
-			$this->version = '1.0.3.2';
+			$this->version = '1.0.3.3';
 		}
 		$this->Customer_Chat = 'customer-chat-for-facebook';
 
@@ -120,6 +120,13 @@ class Customer_Chat {
 		 * The class responsible for defining all Settings.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/settings/class-customer-chat-for-facebook-settings.php';
+
+
+		/**
+		 * The class responsible for the button shortcode
+		 */
+		// This may have a better place to go
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/customer-chat-for-facebook-public-button-shortcode.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing

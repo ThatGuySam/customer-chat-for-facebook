@@ -3,9 +3,9 @@ Contributors: thatguysam
 Donate link: https://cash.me/$ThatGuySam
 Tags: facebook, messenger, chat
 Requires at least: 3.0.1
-Tested up to: 4.9.1
-Requires PHP: 5.6
-Stable tag: 1.0.3.2
+Tested up to: 5.0
+Requires PHP: 7.0
+Stable tag: 1.0.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,16 +13,22 @@ Adds Facebook's Customer chat plugin to your site
 
 == Description ==
 
-This is a plugin for the brand new Customer Chat Beta so you can try the Official Facebook Messenger on your own Wordpress site!
+This is a plugin for Facebook's Customer Chat so you can try the Official Facebook Messenger on your own Wordpress site!
 
-Keep in mind Facebook is currently beta testing this.
+You can also open the chat via a special button with the follow shortcode:
+`[ccfb_toggle]`
 
-You can find out more about the beta in Facebook’s post: https://blog.messengerdevelopers.com/messenger-customer-chat-open-beta-16b11879637
+And with custom text and class:
+`[ccfb_toggle class="btn btn-default"]Chat[/ccfb_toggle]`
+
+
+You can learn more about Facebook's Customer Chat plugin here:
+[Customer Chat Plugin](https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin/)
 
 
 == Installation ==
 
-(2 Minute Video Tutorial)[https://www.youtube.com/watch?v=iwofbP1EnrE]
+[2 Minute Video Tutorial](https://www.youtube.com/watch?v=iwofbP1EnrE)
 
 **Whitelisting Your domain**
 
@@ -56,6 +62,9 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 2. /assets/screenshot-2.png
 
 == Changelog ==
+
+= 1.0.3.3 =
+
 
 = 1.0.3.2 =
 * Added Color option
