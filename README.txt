@@ -22,7 +22,7 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 
 == Installation ==
 
-(2 Minute Video Tutorial)[https://www.youtube.com/watch?v=iwofbP1EnrE]
+[2 Minute Video Tutorial](https://www.youtube.com/watch?v=iwofbP1EnrE)
 
 **Whitelisting Your domain**
 

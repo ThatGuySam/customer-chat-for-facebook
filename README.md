@@ -9,7 +9,7 @@ You can find out more about the beta in [Facebook’s post](https://blog.messeng
 ## Setup & Installation
 Since this is a newer experimental plugin it requires some setup to get going.
 
-(2 Minute Video Tutorial)[https://www.youtube.com/watch?v=iwofbP1EnrE]
+[2 Minute Video Tutorial](https://www.youtube.com/watch?v=iwofbP1EnrE)
 
 **Whitelisting Your domain**
 
