@@ -5,7 +5,7 @@ Tags: facebook, messenger, chat
 Requires at least: 3.0.1
 Tested up to: 4.9.1
 Requires PHP: 5.6
-Stable tag: 1.0.3.2
+Stable tag: 1.0.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,9 @@ You can find out more about the beta in Facebook’s post: https://blog.messenge
 2. /assets/screenshot-2.png
 
 == Changelog ==
+
+= 1.0.3.3 =
+
 
 = 1.0.3.2 =
 * Added Color option
