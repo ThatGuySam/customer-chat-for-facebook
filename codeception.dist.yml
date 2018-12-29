@@ -1,0 +1,84 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    colors: true
+    memory_limit: 1024M
+params:
+    - .env
+extensions:
+    enabled:
+        - Codeception\ProgressReporter\ProgressReporter
+    commands:
+        # Generate Tests cases
+        # codecept generate:wp[...] [suite] [className]
+        - 'Codeception\Command\GenerateWPUnit'
+        - 'Codeception\Command\GenerateWPRestApi'
+        - 'Codeception\Command\GenerateWPRestController'
+        - 'Codeception\Command\GenerateWPRestPostTypeController'
+        - 'Codeception\Command\GenerateWPAjax'
+        # Generate a snapshot of DB and also share a remote DB
+        - 'Codeception\Command\DbSnapshot'
+        - 'tad\Codeception\Command\SearchReplace'
+modules:
+    config:
+        # Check https://github.com/lucatume/wp-browser
+        WPBrowser:
+            url: %WP_URL%
+            adminUsername: admin
+            adminPassword: password
+            adminUrl: /wp-admin
+        WPDb:
+            dsn: 'mysql:host=%DB_HOST%;dbname=%DB_NAME%'
+            user: %DB_USER%
+            password: %DB_PASSWORD%
+            dump: tests/_data/dump.sql
+            populate: true
+            cleanup: true
+            reconnect: true
+            url: %WP_URL%
+            urlReplacement: true
+            tablePrefix: wp_
+        WPLoader:
+            # Download, install and get a working WP site
+            multisite: false
+            wpRootFolder: %WP_ROOT%
+            dbName: %DB_NAME%
+            dbHost: %DB_HOST%
+            dbUser: %DB_USER%
+            dbPassword: %DB_PASSWORD%
+            wpDebug: true
+            dbCharset: utf8
+            dbCollate: ''
+            tablePrefix: wp_
+            domain: %WP_DOMAIN%
+            adminEmail: admin@%WP_DOMAIN%
+            title: 'WP Tests'
+            phpBinary: php
+            language: ''
+            configFile: 'wp-config-test.php'
+            plugins: ["WordPress-Plugin-Boilerplate-Powered/customer-chat-for-facebook/customer-chat-for-facebook.php"]
+            activatePlugins: ["WordPress-Plugin-Boilerplate-Powered/customer-chat-for-facebook/customer-chat-for-facebook.php"]
+        WPWebDriver:
+            url: %WP_URL%
+            browser: chrome
+            port: 4444
+            restart: true
+            wait: 2
+            adminUsername: admin
+            adminPassword: password
+            adminUrl: /wp-admin
+            capabilities:
+                chromeOptions:
+                    args: ["--headless", "--disable-gpu"]
+        WPFilesystem:
+            # Navigate and manipulate files inside WP
+            wpRootFolder: %WP_ROOT%
+        WPCLI:
+            # Download and install WPCLI for synchronous and isolated tests
+            path: %WP_ROOT%
+            throw: true
