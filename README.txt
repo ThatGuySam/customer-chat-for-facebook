@@ -79,13 +79,42 @@ You can learn more about Facebook's Customer Chat plugin here:
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Why isn't it using the Greeting Dialog Display I set? =
 
-An answer to that question.
+If the user at anytime closes the welcome message the plugin remembers that and keeps it closed for the user from then on.
+You can preview it by opening the site in a incognito window.
 
-= What about foo bar? =
+= Why isn't the chat appearing? =
 
-Answer to foo bar dilemma.
+Make sure the url that is whitelisted is exactly like the url you are looking at.
+If it has https or www then the whitelisting should be exactly the same.
+For example: If you have https://google.com in your whitelist, http://google.com and https://www.google.com will still both be blocked.
+
+= Why isn't the chat appearing even though I've whitelisted my exact url? =
+
+Sometimes other plugins and themes that use the Facebook SDK will overwrite any Facebook related plugins to that were setup before it.
+If the SDK that the "winning" plugin uses doesn't support Customer Chat then it will lock out this plugin.
+It's an ongoing issue and you just have to mix and match until you get a plugin that plays well with others.
+Try picking a plugin that is updated frequently or recently. That usually means the developer does a lot of work on it to make sure things like that don't happen.
+As another option you can go ahead delete this plugin(it won't hurt my feelings) and add the code manually using [Facebook's Documentation](https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin/#steps) and [this plugin](https://wordpress.org/plugins/custom-css-js/)
+
+= Why isn't the chat showing up in my language? =
+
+It’s about the order in which things load.
+Most facebook plugins use the same SDK
+https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js
+However, when you load the SDK you have the option to match the language of the site, not just english, like so:
+https://connect.facebook.net/hr/sdk/xfbml.customerchat.js
+Unfortunately some plugin authors forget to honor the site language.
+Now both SDKs get loaded but only one is needed so whichever is loaded last is what gets used, sometimes that is a plugin that only uses the english SDK(en_US).
+
+= Why didn't that fix my issue? =
+
+Try taking a look at [Facebook's Official documentation](https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin)
+
+= Have more issues? =
+
+Make sure you've you've setup the plugin exactly like [this video](https://www.youtube.com/watch?v=_8skhKEYOBs) and then [contact me. ](https://m.me/samcarltoncreative/)
 
 == Screenshots ==
 
