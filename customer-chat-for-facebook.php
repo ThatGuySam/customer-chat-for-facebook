@@ -9,8 +9,8 @@
  * @link	  https://samcarlton.com
  *
  * Plugin Name:	    Customer Chat for Facebook
- * Plugin URI:		@TODO
- * Description:	    @TODO
+ * Plugin URI:		https://samcarlton.com
+ * Description:	    Adds Facebook's Customer Chat for Messenger plugin to your site.
  * Version:		    1.1.0
  * Author:			Sam Carlton
  * Author URI:		https://samcarlton.com
