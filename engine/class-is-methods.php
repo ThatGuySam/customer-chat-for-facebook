@@ -11,7 +11,7 @@
  */
 
 /**
- * Plugin Name Is Methods
+ * Customer Chat for Facebook Is Methods
  */
 class Ccff_Is_Methods {
 

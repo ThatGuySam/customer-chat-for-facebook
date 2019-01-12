@@ -11,7 +11,7 @@
  */
 
 /**
- * Plugin Name Initializer
+ * Customer Chat for Facebook Initializer
  */
 class Ccff_Initialize {
 

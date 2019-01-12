@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Plugin name
+ * Customer_Chat_for_Facebook
  *
- * @package   Plugin_name
+ * @package   Customer_Chat_for_Facebook
  * @author    Sam Carlton <sam@sam.lc>
  * @copyright 2019 Sam Carlton Creative
  * @license   GPL 2.0+

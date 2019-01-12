@@ -9,7 +9,7 @@ class AdminSettingsPageCest {
     function add_plugin_admin_menu(AcceptanceTester $I) {
 		$I->wantTo('access to the plugin settings page as admin');
         $I->amOnPage('/wp-admin/admin.php?page=customer-chat-for-facebook');
-        $I->see('Plugin Name Settings', 'h2');
+        $I->see('Customer Chat for Facebook Settings', 'h2');
     }
 
     function add_action_link(AcceptanceTester $I) {
