@@ -54,7 +54,9 @@ class Ccff_Admin_Settings_Page extends Ccff_Admin_Base {
 		 * Add a settings page for this plugin to the main menu
 		 *
 		 */
-		add_menu_page( __( 'Plugin Name Settings', CCFF_TEXTDOMAIN ), CCFF_NAME, 'manage_options', CCFF_TEXTDOMAIN, array( $this, 'display_plugin_admin_page' ), 'dashicons-hammer', 90 );
+		// add_menu_page( __( 'Customer Chat for Facebook Settings', CCFF_TEXTDOMAIN ), CCFF_NAME, 'manage_options', CCFF_TEXTDOMAIN, array( $this, 'display_plugin_admin_page' ), 'dashicons-hammer', 90 );
+
+		add_options_page( __( 'Customer Chat for Facebook Settings', CCFF_TEXTDOMAIN ), CCFF_NAME, 'manage_options', CCFF_TEXTDOMAIN, array( $this, 'display_plugin_admin_page' ) );
 	}
 
 	/**
