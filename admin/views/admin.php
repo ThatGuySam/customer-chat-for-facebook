@@ -18,21 +18,26 @@
     <h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 
     <div id="tabs" class="settings-tab">
-		<ul>
-			<li><a href="#tabs-1"><?php _e( 'Settings' ); ?></a></li>
-			<li><a href="#tabs-2"><?php _e( 'Settings 2', CCFF_TEXTDOMAIN ); ?></a></li>
-			<?php
-			?>
-			<li><a href="#tabs-3"><?php _e( 'Import/Export', CCFF_TEXTDOMAIN ); ?></a></li>
-			<?php
-			?>
-		</ul>
-		<?php
-		require_once( plugin_dir_path( __FILE__ ) . 'settings.php' );
-		require_once( plugin_dir_path( __FILE__ ) . 'settings-2.php' );
-		?>
-		<?php
-		?>
+		<div class="right-column-settings-page metabox-holder">
+			<div class="postbox">
+				<h3 class="hndle"><span><?php _e( 'Setup', CCFF_TEXTDOMAIN ); ?></span></h3>
+				<div class="inside">
+					<p>Be sure that you go through the plugin setup to make sure everything is working as intended.</p>
+					<a href="https://www.youtube.com/watch?v=_8skhKEYOBs" class="button-secondary" target="_blank"><strong><?php _e( 'Simple Setup Video' ); ?></strong></a>
+					<a href="https://samcarlton.com/customer-chat-for-facebook-faq" class="button-secondary" target="_blank"><?php _e( 'FAQ' ); ?></a>
+				</div>
+			</div>
+		</div>
+		<div class="right-column-settings-page metabox-holder">
+			<div class="postbox">
+				<h3 class="hndle"><span><?php _e( 'Settings', CCFF_TEXTDOMAIN ); ?></span></h3>
+				<div class="inside">
+					<?php
+						require_once( plugin_dir_path( __FILE__ ) . 'settings.php' );
+					?>
+				</div>
+			</div>
+		</div>
 		<!-- <div id="tabs-3" class="metabox-holder">
 			<div class="postbox">
 				<h3 class="hndle"><span><?php _e( 'Export Settings', CCFF_TEXTDOMAIN ); ?></span></h3>
