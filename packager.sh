@@ -16,6 +16,7 @@ rsync -arv --exclude={'vendor','node_modules','tests','.git'} customer-chat-for-
 cd customer-chat-for-facebook-packaged
 
 echo "-Cleaning in Progress..."
+rm -rf packager.sh
 rm -rf .env
 rm -rf .env.example
 rm -rf ./.git*
