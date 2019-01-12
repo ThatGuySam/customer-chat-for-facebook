@@ -96,6 +96,16 @@
 				'after' => '<p class="cmb2-metabox-description">This can be used to customize when you want the greeting dialog to appear.</p>'
 			) );
 
+			// Reference
+			$cmb->add_field( array(
+				'name' => __( 'Reference', CCFF_TEXTDOMAIN ),
+				'desc' => __( 'You may pass an optional ref parameter if you wish to include additional context to be passed back in the webhook event. ', CCFF_TEXTDOMAIN ),
+				'id' => 'ref',
+				'type' => 'text',
+				'default' => site_url(),
+				'after' => '<p class="cmb2-metabox-description">This can be used for many purposes, such as tracking which page the user started the conversation on, <br>directing the user to specific content or features available within the bot, or tying a Messenger user to a session or account on the website.</p>'
+			) );
+
 			// Language
 			$cmb->add_field( array(
 				'name' => __( 'Language', CCFF_TEXTDOMAIN ),
