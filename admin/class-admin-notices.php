@@ -28,8 +28,8 @@ class Ccff_Admin_Notices extends Ccff_Admin_Base {
 		 *
 		 * First parameter the HTML, the second is the css class
 		 */
-		new WP_Admin_Notice( __( 'Updated Messages', CCFF_TEXTDOMAIN ), 'updated' );
-		new WP_Admin_Notice( __( 'Error Messages', CCFF_TEXTDOMAIN ), 'error' );
+		// new WP_Admin_Notice( __( 'Updated Messages', CCFF_TEXTDOMAIN ), 'updated' );
+		// new WP_Admin_Notice( __( 'Error Messages', CCFF_TEXTDOMAIN ), 'error' );
 		/*
 		 * Dismissible notice
 		 */
