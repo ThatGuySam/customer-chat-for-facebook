@@ -33,7 +33,7 @@ class Ccff_Admin_Notices extends Ccff_Admin_Base {
 		/*
 		 * Dismissible notice
 		 */
-		dnh_register_notice( 'my_demo_notice', 'updated', __( 'This is my dismissible notice', CCFF_TEXTDOMAIN ) );
+		dnh_register_notice( 'my_demo_notice', 'updated', __( 'Customer Chat for Facebook is active <a href="' . admin_url( 'options-general.php?page=' . CCFF_TEXTDOMAIN ) . '">' . __( 'Finish Setup', CCFF_TEXTDOMAIN ) . '</a>', CCFF_TEXTDOMAIN ) );
 		/*
 		 * Review Me notice
 		 */
