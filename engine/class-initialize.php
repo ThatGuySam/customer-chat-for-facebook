@@ -52,7 +52,8 @@ class Ccff_Initialize {
             $this->classes[] = 'Ccff_Pointers';
             $this->classes[] = 'Ccff_ContextualHelp';
             $this->classes[] = 'Ccff_Admin_Notices';
-            $this->classes[] = 'Ccff_Admin_ImpExp';
+			$this->classes[] = 'Ccff_Admin_ImpExp';
+			$this->classes[] = 'Ccff_Admin_Settings_Page';
         }
 
         if ( $this->is->request( 'frontend' ) ) {
