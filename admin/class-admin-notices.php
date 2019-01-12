@@ -33,7 +33,13 @@ class Ccff_Admin_Notices extends Ccff_Admin_Base {
 		/*
 		 * Dismissible notice
 		 */
-		dnh_register_notice( 'my_demo_notice', 'updated', __( 'Customer Chat for Facebook is active <a href="' . admin_url( 'options-general.php?page=' . CCFF_TEXTDOMAIN ) . '">' . __( 'Finish Setup', CCFF_TEXTDOMAIN ) . '</a>', CCFF_TEXTDOMAIN ) );
+
+		// Setup notice
+		$page_id_empty = empty($this->settings['facebook-page-id']);
+		$is_not_on_settings_page = ($_GET['page'] !== CCFF_TEXTDOMAIN);
+		if ($page_id_empty && $is_not_on_settings_page) {
+			dnh_register_notice( 'setup_notice', 'updated', __( 'Customer Chat for Facebook is active <a href="' . admin_url( 'options-general.php?page=' . CCFF_TEXTDOMAIN ) . '">' . __( 'Finish Setup', CCFF_TEXTDOMAIN ) . '</a>', CCFF_TEXTDOMAIN ) );
+		}
 		/*
 		 * Review Me notice
 		 */
