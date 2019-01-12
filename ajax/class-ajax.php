@@ -5,7 +5,7 @@
  *
  * @package   Plugin_name
  * @author    Sam Carlton <sam@sam.lc>
- * @copyright 2018 Sam Carlton Creative
+ * @copyright 2019 Sam Carlton Creative
  * @license   GPL 2.0+
  * @link      https://samcarlton.com
  */
