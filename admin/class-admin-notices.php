@@ -37,16 +37,16 @@ class Ccff_Admin_Notices extends Ccff_Admin_Base {
 		/*
 		 * Review Me notice
 		 */
-		new WP_Review_Me(
-			array(
-				'days_after' => 15,
-				'type'       => 'plugin',
-				'slug'       => CCFF_TEXTDOMAIN,
-				'rating'     => 5,
-				'message'    => __( 'Review me!', CCFF_TEXTDOMAIN ),
-				'link_label' => __( 'Click here to review', CCFF_TEXTDOMAIN ),
-			)
-		);
+		// new WP_Review_Me(
+		// 	array(
+		// 		'days_after' => 15,
+		// 		'type'       => 'plugin',
+		// 		'slug'       => CCFF_TEXTDOMAIN,
+		// 		'rating'     => 5,
+		// 		'message'    => __( 'Review me!', CCFF_TEXTDOMAIN ),
+		// 		'link_label' => __( 'Click here to review', CCFF_TEXTDOMAIN ),
+		// 	)
+		// );
 		new Yoast_I18n_WordPressOrg_v3(
 			array(
 				'textdomain'  => CCFF_TEXTDOMAIN,
