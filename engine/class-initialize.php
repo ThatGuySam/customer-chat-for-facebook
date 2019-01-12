@@ -37,14 +37,14 @@ class Ccff_Initialize {
 	public function __construct() {
         $this->is        = new Ccff_Is_Methods();
         $this->classes   = array();
-        $this->classes[] = 'Ccff_PostTypes';
+        // $this->classes[] = 'Ccff_PostTypes';
         $this->classes[] = 'Ccff_CMB';
-        $this->classes[] = 'Ccff_Cron';
-        $this->classes[] = 'Ccff_FakePage';
-        $this->classes[] = 'Ccff_Template';
-        $this->classes[] = 'Ccff_Widgets';
-        $this->classes[] = 'Ccff_Rest';
-        $this->classes[] = 'Ccff_Transient';
+        // $this->classes[] = 'Ccff_Cron';
+        // $this->classes[] = 'Ccff_FakePage';
+        // $this->classes[] = 'Ccff_Template';
+        // $this->classes[] = 'Ccff_Widgets';
+        // $this->classes[] = 'Ccff_Rest';
+        // $this->classes[] = 'Ccff_Transient';
 
 
 
