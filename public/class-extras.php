@@ -39,6 +39,16 @@ class Ccff_Extras extends Ccff_Base {
 		return $classes;
 	}
 
+	public function get_setting_or_null ($setting_key, $sanitizer = FILTER_SANITIZE_ENCODED) {
+		// Check if setting is set
+		if (!isset($this->settings[$setting_key])) return null;
+
+		// If no santizer is set just return the value
+		if (!$sanitizer || empty($sanitizer)) return $this->settings[$setting_key];
+
+		return filter_var($this->settings[$setting_key], $sanitizer);
+	}
+
 	/**
 	 * Add html for the customer chat plugin
 	 *
@@ -46,19 +56,20 @@ class Ccff_Extras extends Ccff_Base {
 	 *
 	 * @return array
 	 */
-	public static function add_fb_html() {
+	public function add_fb_html() {
+
 		$facebook_page_id = $this->settings['facebook-page-id'];
 		$facebook_app_id = $this->settings['facebook-app-id'];
 		$locale = get_locale() ?: 'en_US';
 
 		$attributes = array(
 			'page_id' => filter_var($facebook_page_id, FILTER_VALIDATE_INT),
-			'ref' => filter_var($this->settings['ref'], FILTER_SANITIZE_ENCODED),
+			'ref' => $this->get_setting_or_null('ref'),
 			'theme_color' => &$this->settings['theme_color'],
-			'logged_in_greeting' => filter_var($this->settings['logged_in_greeting'], FILTER_SANITIZE_ENCODED),
-			'logged_out_greeting' => filter_var($this->settings['$logged_out_greeting'], FILTER_SANITIZE_ENCODED),
-			'greeting_dialog_display' => filter_var($this->settings['greeting_dialog_display'], FILTER_SANITIZE_ENCODED),
-			'greeting_dialog_delay' => filter_var($this->settings['greeting_dialog_delay'], FILTER_SANITIZE_ENCODED),
+			'logged_in_greeting' => $this->get_setting_or_null('logged_in_greeting', null),
+			'logged_out_greeting' => $this->get_setting_or_null('logged_out_greeting', null),
+			'greeting_dialog_display' => $this->get_setting_or_null('greeting_dialog_display'),
+			'greeting_dialog_delay' => $this->get_setting_or_null('greeting_dialog_delay'),
 		);
 
 		?>
@@ -80,11 +91,9 @@ class Ccff_Extras extends Ccff_Base {
 				}(document, 'script', 'facebook-jssdk'));
 			</script>
 
-			<div class="fb-customerchat"
-				<?php foreach ($attributes as $name => $value) {
+			<div class="fb-customerchat" <?php foreach ($attributes as $name => $value) {
 					if ($value && !empty($value)) echo "$name=\"$value\" ";
-				} ?>
-			>
+				} ?>>
 			</div>
 		<?php
 	}
