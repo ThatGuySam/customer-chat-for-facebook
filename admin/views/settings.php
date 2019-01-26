@@ -1,5 +1,20 @@
 <div id="tabs-1" class="wrap">
 	<?php
+
+			// Get options from old version
+			// Ex: Array ( [facebook-page-id] => 139756292753616 [facebook-app-id] => 735243603333999 [theme_color] => #000000 [logged_in_greeting] => Logged in Greeting [logged_out_greeting] => Logged out Greeting [greeting_dialog_display] => fade [greeting_dialog_delay] => 7 [ref] => websi [wp_language] => en_US )
+			$old_options = [];
+			$have_old_options_been_transferred = get_option( CCFF_TEXTDOMAIN . '_have_old_options_been_transferred' );
+
+			if (empty($have_old_options_been_transferred) || !$have_old_options_been_transferred) {
+				$old_options = get_option( 'customer-chat-for-facebook_options' );
+
+				// Update new options with the old ones
+				update_option( CCFF_TEXTDOMAIN . '-settings', $old_options );
+				// Update that options have been transferred
+				update_option( CCFF_TEXTDOMAIN . '_have_old_options_been_transferred', true );
+			}
+
 			// Metabox
 			$cmb = new_cmb2_box( array(
 				'id' => CCFF_TEXTDOMAIN . '_options',
