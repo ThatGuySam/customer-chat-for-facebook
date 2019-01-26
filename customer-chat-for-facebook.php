@@ -1,82 +1,116 @@
 <?php
 
 /**
- * The plugin bootstrap file
  *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
+ * @package   Customer_Chat_for_Facebook
+ * @author	  Sam Carlton <sam@sam.lc>
+ * @copyright 2019 Sam Carlton Creative
+ * @license   GPL 2.0+
+ * @link	  https://samcarlton.com
  *
- * @link              http://example.com
- * @since             1.0.0
- * @package           Customer_Chat
- *
- * @wordpress-plugin
- * Plugin Name:       Customer Chat for Facebook
- * Plugin URI:        https://samcarlton.com/customer-chat-for-facebook
- * Description:       Adds Facebook's Customer chat plugin to your site
- * Version:           1.0.3.3
- * Author:            Sam Carlton
- * Author URI:        http://samcarlton.com
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       customer-chat-for-facebook
- * Domain Path:       /languages
+ * Plugin Name:	    Customer Chat for Facebook
+ * Plugin URI:		https://samcarlton.com
+ * Description:	    Adds Facebook's Customer Chat for Messenger plugin to your site.
+ * Version:		    1.1.0
+ * Author:			Sam Carlton
+ * Author URI:		https://samcarlton.com
+ * Text Domain:	    customer-chat-for-facebook
+ * License:		    GPL 2.0+
+ * License URI:	    http://www.gnu.org/licenses/gpl-2.0.txt
+ * Domain Path:	    /languages
+ * Requires PHP:	5.6
+ * WordPress-Plugin-Boilerplate-Powered: v3.0.0
  */
-
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
-/**
- * Currently pligin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
- */
-define( 'PLUGIN_NAME_VERSION', '1.0.3.3' );
+define( 'CCFF_VERSION', '1.1.0' );
+define( 'CCFF_TEXTDOMAIN', 'customer-chat-for-facebook' );
+define( 'CCFF_NAME', 'Customer Chat for Facebook' );
+define( 'CCFF_PLUGIN_ROOT', plugin_dir_path( __FILE__ ) );
+define( 'CCFF_PLUGIN_ABSOLUTE', __FILE__ );
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-customer-chat-for-facebook-activator.php
- */
-function activate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-customer-chat-for-facebook-activator.php';
-	Customer_Chat_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-customer-chat-for-facebook-deactivator.php
- */
-function deactivate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-customer-chat-for-facebook-deactivator.php';
-	Customer_Chat_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-customer-chat-for-facebook.php';
-
-/**
- * Begins execution of the plugin.
+ * Load the textdomain of the plugin
  *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    1.0.0
+ * @return void
  */
-function run_plugin_name() {
-
-	$plugin = new Customer_Chat();
-	$plugin->run();
-
+function ccff_load_plugin_textdomain() {
+	$locale = apply_filters( 'plugin_locale', get_locale(), CCFF_TEXTDOMAIN );
+	load_textdomain( CCFF_TEXTDOMAIN, trailingslashit( WP_PLUGIN_DIR ) . CCFF_TEXTDOMAIN . '/languages/' . CCFF_TEXTDOMAIN . '-' . $locale . '.mo' );
 }
-run_plugin_name();
+
+add_action( 'plugins_loaded', 'ccff_load_plugin_textdomain', 1 );
+if ( version_compare( PHP_VERSION, '5.6.0', '<' ) ) {
+	function ccff_deactivate() {
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+	}
+
+	function ccff_show_deactivation_notice() {
+		echo wp_kses_post(
+			sprintf(
+				'<div class="notice notice-error"><p>%s</p></div>',
+				__( '"Plugin Name" requires PHP 5.6 or newer.', CCFF_TEXTDOMAIN )
+			)
+		);
+	}
+
+	add_action( 'admin_init', 'ccff_deactivate' );
+	add_action( 'admin_notices', 'ccff_show_deactivation_notice' );
+
+	// Return early to prevent loading the other includes.
+	return;
+}
+
+require_once( CCFF_PLUGIN_ROOT . 'vendor/autoload.php' );
+
+require_once( CCFF_PLUGIN_ROOT . 'internals/functions.php' );
+require_once( CCFF_PLUGIN_ROOT . 'internals/debug.php' );
+
+/**
+ * Create a helper function for easy SDK access.
+ *
+ * @global type $ccff_fs
+ * @return object
+ */
+function ccff_fs() {
+	global $ccff_fs;
+
+	if ( !isset( $ccff_fs ) ) {
+		require_once( CCFF_PLUGIN_ROOT . 'vendor/freemius/wordpress-sdk/start.php' );
+		$ccff_fs = fs_dynamic_init(
+			array(
+				'id'			 => '',
+				'slug'		     => 'customer-chat-for-facebook',
+				'public_key'	 => '',
+				'is_live'		 => false,
+				'is_premium'	 => true,
+				'has_addons'	 => false,
+				'has_paid_plans' => true,
+				'menu'		   => array(
+					'slug' => 'customer-chat-for-facebook',
+				),
+			)
+		);
+
+
+		if ( $ccff_fs->is_premium() ) {
+				$ccff_fs->add_filter( 'support_forum_url', 'gt_premium_support_forum_url' );
+
+				function gt_premium_support_forum_url( $wp_org_support_forum_url ) {
+					return 'http://your url';
+				}
+			}
+	}
+
+	return $ccff_fs;
+}
+
+// Init Freemius.
+// ccff_fs();
+
+if ( ! wp_installing() ) {
+	add_action( 'plugins_loaded', array( 'Ccff_Initialize', 'get_instance' ) );
+}

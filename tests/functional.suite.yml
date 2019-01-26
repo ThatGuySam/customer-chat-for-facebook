@@ -1,0 +1,19 @@
+# Codeception Test Suite Configuration
+
+# suite for WordPress functional tests.
+# Emulate web requests and make application process them.
+class_name: FunctionalTester
+modules:
+  enabled:
+    - \Helper\Functional
+    # see https://github.com/lucatume/wp-browser#modules
+    - WPBrowser     # JavaScript-less and headless browser
+    - WPDb          # manipulate the database and look up stuff
+    - WPFilesystem  # manipulate the WP filesystem, scaffold themes and plugins
+    - REST          # to test REST WebServices
+    - Asserts       # PHPUnit-like assertions
+    - WPCLI         # Why not test also the CLI?
+  config:
+    REST:
+      depends: PhpBrowser
+      url: '%WP_URL%/wp-json/wp/v2/'

@@ -1,0 +1,10 @@
+# Codeception Test Suite Configuration
+
+# suite for WordPress unit tests.
+# Load WordPress and unit test classes that rely on it.
+class_name: WpunitTester
+modules:
+    enabled:
+        # see https://github.com/lucatume/wp-browser#modules
+        - WPLoader        # loads and configures a blank WordPress installation
+        - \Helper\Wpunit
