@@ -4,13 +4,34 @@
 	"description": "",
 	"author": "Sam Carlton <sam@sam.lc>",
 	"scripts": {
+		"start": "npm run production",
+		"clean": "npm cache clean --force",
+		"rebuild-sass": "npm rebuild node-sass --force",
+		"dev": "npm run development",
+		"development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch-poll": "npm run watch -- --watch-poll",
+		"hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"prod": "npm run production",
+		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"lint": "eslint resources/assets/js --ext .vue",
+		"fix": "npm run lint -- --fix",
+		"stage": "yarn production && now --static",
 		"package": "./packager.sh"
 	},
 	"devDependencies": {
+		"browser-sync": "^2.26.3",
+		"browser-sync-webpack-plugin": "2.0.1",
+		"cross-env": "^5.2.0",
 		"grunt": "*",
-		"grunt-contrib-watch": "*",
+		"grunt-contrib-coffee": "2.x",
 		"grunt-contrib-compass": "*",
-		"grunt-contrib-coffee": "2.x"
+		"grunt-contrib-watch": "*",
+		"laravel-mix": "^4.0.14",
+		"resolve-url-loader": "2.3.1",
+		"sass": "^1.16.1",
+		"sass-loader": "7.*",
+		"vue-template-compiler": "^2.5.22"
 	},
 	"dependencies": {}
 }

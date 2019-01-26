@@ -38,3 +38,5 @@ cache
 vendor
 tests/_output
 /customer-chat-for-facebook/vendor/
+/dist/
+/.vscode
