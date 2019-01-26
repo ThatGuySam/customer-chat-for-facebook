@@ -22,8 +22,8 @@ class Ccff_Pointers extends Ccff_base {
 	 */
 	public function initialize() {
         parent::initialize();
-		new PointerPlus( array( 'prefix' => CCFF_TEXTDOMAIN ) );
-		add_filter( CCFF_TEXTDOMAIN . '-pointerplus_list', array( $this, 'custom_initial_pointers' ), 10, 2 );
+		// new PointerPlus( array( 'prefix' => CCFF_TEXTDOMAIN ) );
+		// add_filter( CCFF_TEXTDOMAIN . '-pointerplus_list', array( $this, 'custom_initial_pointers' ), 10, 2 );
 	}
 
 	/**
