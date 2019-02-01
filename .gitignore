@@ -40,3 +40,4 @@ tests/_output
 /customer-chat-for-facebook/vendor/
 /dist/
 /.vscode
+/mix-manifest.json
